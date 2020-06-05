@@ -62,7 +62,7 @@ class HomeTabItemScreen extends StatelessWidget {
 
   Widget __topCardSwiperList(HomeScreenState state) {
     Widget _mapStateToWidget(List<dynamic> posts) {
-      if (posts == null)
+      if (posts == null || posts == [] || posts.isEmpty)
         return Swiper(
           itemBuilder: (BuildContext context, int index) => ShimmerBottomContent(
             shimmerBaseColor: Colors.grey[300],
@@ -78,7 +78,7 @@ class HomeTabItemScreen extends StatelessWidget {
           scale: 0.75,
         );
 
-      if (posts == [] || posts.isEmpty)
+      if (!state.isInit && (posts == [] || posts.isEmpty))
         return Center(
           child: Container(
             child: Text("No posts this week!", style: Get.textTheme.headline5),
@@ -109,7 +109,7 @@ class HomeTabItemScreen extends StatelessWidget {
 
   Widget __bottomCardSwiperList(HomeScreenState state) {
     Widget _mapStateToWidget(List<dynamic> posts) {
-      if (posts == null)
+      if (posts == null || posts == [] || posts.isEmpty)
         return Swiper(
           itemBuilder: (BuildContext context, int index) => ShimmerBottomContent(
             shimmerBaseColor: Colors.grey[300],
@@ -125,7 +125,7 @@ class HomeTabItemScreen extends StatelessWidget {
           scale: 0.93,
         );
 
-      if (posts == [] || posts.isEmpty)
+      if (!state.isInit && (posts == [] || posts.isEmpty))
         return Center(
           child: Container(
             child: Text("All clear!", style: Get.textTheme.headline5),

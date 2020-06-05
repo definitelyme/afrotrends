@@ -34,19 +34,18 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
     yield* event.map(
       getTopStories: (e) async* {},
       getPostsForThisWeek: (e) async* {
-        yield state.copyWith(isInit: false);
-
         String filter = getURLForThisWeekPosts(e.item);
         var posts = await _postFacade.all(RequestArg(perPage: 30), optional: filter);
+        
         yield* mapThisWeekPosts(e.item, posts);
+        yield state.copyWith(isInit: false);
       },
       getOlderPosts: (e) async* {
-        yield state.copyWith(isInit: false);
-
         String filter = getURLForOlderPosts(e.item);
-        print("URLs => $filter");
         var posts = await _postFacade.all(RequestArg(perPage: 40), optional: filter);
+        
         yield* mapOlderPosts(e.item, posts);
+        yield state.copyWith(isInit: false);
       },
     );
   }
