@@ -42,9 +42,12 @@ dependencies:
   flutter_swiper:
   # Shimmer Skeleton Library.
   shimmer: ^1.1.1
+  # For rendering Raw HTML
   html:
   flutter_html_view: ^0.5.11
-#  flutter_html: ^1.0.0
+  # Firebase Packages
+  firebase_messaging: ^6.0.16
+  firebase_auth: ^0.16.1
 
 dev_dependencies:
   flutter_driver:
