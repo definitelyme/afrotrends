@@ -31,8 +31,6 @@ class ShimmerRightContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey _key = GlobalKey();
-
     return Shimmer.fromColors(
       baseColor: shimmerBaseColor,
       highlightColor: shimmerHighlightColor,

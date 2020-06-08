@@ -30,8 +30,6 @@ class ShimmerBottomContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey _key = GlobalKey();
-
     return Shimmer.fromColors(
       baseColor: shimmerBaseColor,
       highlightColor: shimmerHighlightColor,
@@ -43,7 +41,7 @@ class ShimmerBottomContent extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 6,
               child: Container(
                 margin: margin,
                 padding: padding,
@@ -55,15 +53,17 @@ class ShimmerBottomContent extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Expanded(
-              flex: 1,
+              flex: 3,
               child: Container(
                 margin: margin,
                 padding: padding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
                       height: 6,
+                      width: width * 0.8,
                       decoration: BoxDecoration(
                         color: boxColor,
                         borderRadius: BorderRadius.circular(borderRadius),
@@ -71,7 +71,7 @@ class ShimmerBottomContent extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: width / 1.5,
+                      width: width * 0.65,
                       height: 6,
                       decoration: BoxDecoration(
                         color: boxColor,
@@ -80,7 +80,7 @@ class ShimmerBottomContent extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: width / 2,
+                      width: width * 0.95,
                       height: 6,
                       decoration: BoxDecoration(
                         color: boxColor,

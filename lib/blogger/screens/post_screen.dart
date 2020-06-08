@@ -13,7 +13,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:get/get.dart';
-import 'package:html/parser.dart';
 
 class PostScreen extends StatelessWidget {
   static String routeName = "/post-detail";
@@ -29,8 +28,6 @@ class PostScreen extends StatelessWidget {
       child: BlocConsumer<PostScreenBloc, PostScreenState>(
         listener: (context, state) {},
         builder: (context, state) {
-          var content = parse(post.content, encoding: "UTF-8");
-
           _scrollController.addListener(() {
             var isNavVisible = context.bloc<PostScreenBloc>().state.isNavVisible;
 
@@ -127,8 +124,8 @@ class PostScreen extends StatelessWidget {
       ),
     );
   }
-  
-  Widget _postActions(BuildContext context){
+
+  Widget _postActions(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 40),
       height: context.bloc<PostScreenBloc>().state.isNavVisible ? kBottomNavigationBarHeight : 0.0,

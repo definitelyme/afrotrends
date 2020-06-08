@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:afrotrends/blogger/core/failures/failure.dart';
 import 'package:afrotrends/blogger/core/failures/response_status.dart';
 import 'package:afrotrends/blogger/domain/entities/post.dart';
@@ -52,21 +50,21 @@ class PostFacade extends Facade<Post> {
       final response = await _httpClient.get(url);
       if (response.statusCode == 200) {
         var parsedList = response.data;
-  
+
         await Future.forEach(parsedList, (item) async {
           item["categories"] = await _categoryFacade.mappedListFromLink(LinksModel.fromMap(item['_links']));
         });
-  
+
         await Future.forEach(parsedList, (item) async {
           item["author"] = await _userFacade.mapSingleFromLink(LinksModel.fromMap(item["_links"]));
         });
-  
+
         await Future.forEach(parsedList, (item) async {
           item["featured_media"] = await _mediaFacade.mapSingleFromLink(LinksModel.fromMap(item["_links"]));
           item["posts_count"] = response.headers.value('X-WP-Total');
           item["posts_pages_count"] = response.headers.value('X-WP-TotalPages');
         });
-        
+
         return right(WpPosts.fromMap(parsedList).wpPosts);
       }
       return left(status(response));

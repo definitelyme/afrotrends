@@ -365,18 +365,22 @@ class ForYouScreen extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: post.categories
                               .take(2)
                               .map<Widget>(
-                                (e) => Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                                  child: Text(
-                                    e.name,
-                                    style: Get.textTheme.bodyText1.copyWith(color: AppColors.oylexAccent.shade100, fontSize: 13.0),
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oylexAccent.shade100.withAlpha(30),
-                                    borderRadius: BorderRadius.circular(defaultCardRadius()),
+                                (e) => Flexible(
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                                    child: Text(
+                                      e.name,
+                                      textScaleFactor: 0.8,
+                                      style: Get.textTheme.bodyText1.copyWith(color: AppColors.oylexAccent.shade100, fontSize: 13.0),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.oylexAccent.shade100.withAlpha(30),
+                                      borderRadius: BorderRadius.circular(defaultCardRadius()),
+                                    ),
                                   ),
                                 ),
                               )
