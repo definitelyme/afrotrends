@@ -13,7 +13,7 @@ import 'package:meta/meta.dart';
 
 import './bloc.dart';
 
-@injectable
+@Singleton()
 class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   final PostFacade _postFacade;
   final CategoryFacade _categoryFacade;

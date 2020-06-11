@@ -22,12 +22,12 @@ class WpUser extends User {
   String toJson() => json.encode(toMap());
 
   factory WpUser.fromMap(Map<String, dynamic> json) => WpUser(
-        id: json != null ? json["id"]?.toString() : null,
-        name: json["name"]?.toString(),
-        link: json["link"]?.toString(),
-        slug: json["slug"]?.toString(),
-        avatarUrls: Map.from(json["avatar_urls"]).map((k, v) => MapEntry<String, String>(k, v)),
-      );
+      id: json != null ? json["id"]?.toString() : null,
+      name: json != null ? json["name"]?.toString() : null,
+      link: json != null ? json["link"]?.toString() : null,
+      slug: json != null ? json["slug"]?.toString() : null,
+      avatarUrls: json != null ? Map.from(json["avatar_urls"]).map((k, v) => MapEntry<String, String>(k, v)) : null,
+    );
 
   Map<String, dynamic> toMap() => {
         "id": id,

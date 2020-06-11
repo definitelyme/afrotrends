@@ -15,11 +15,17 @@ class _$RootStateTearOff {
   _RootState call(
       {int currentIndex = 0,
       bool bottomNavVisibility = true,
-      ScrollController scrollController}) {
+      ScrollController scrollController,
+      bool hasInternetConnection = false,
+      bool fcmIsConfigured = false,
+      Map<String, dynamic> notification}) {
     return _RootState(
       currentIndex: currentIndex,
       bottomNavVisibility: bottomNavVisibility,
       scrollController: scrollController,
+      hasInternetConnection: hasInternetConnection,
+      fcmIsConfigured: fcmIsConfigured,
+      notification: notification,
     );
   }
 }
@@ -31,6 +37,9 @@ mixin _$RootState {
   int get currentIndex;
   bool get bottomNavVisibility;
   ScrollController get scrollController;
+  bool get hasInternetConnection;
+  bool get fcmIsConfigured;
+  Map<String, dynamic> get notification;
 
   $RootStateCopyWith<RootState> get copyWith;
 }
@@ -41,7 +50,10 @@ abstract class $RootStateCopyWith<$Res> {
   $Res call(
       {int currentIndex,
       bool bottomNavVisibility,
-      ScrollController scrollController});
+      ScrollController scrollController,
+      bool hasInternetConnection,
+      bool fcmIsConfigured,
+      Map<String, dynamic> notification});
 }
 
 class _$RootStateCopyWithImpl<$Res> implements $RootStateCopyWith<$Res> {
@@ -56,6 +68,9 @@ class _$RootStateCopyWithImpl<$Res> implements $RootStateCopyWith<$Res> {
     Object currentIndex = freezed,
     Object bottomNavVisibility = freezed,
     Object scrollController = freezed,
+    Object hasInternetConnection = freezed,
+    Object fcmIsConfigured = freezed,
+    Object notification = freezed,
   }) {
     return _then(_value.copyWith(
       currentIndex:
@@ -66,6 +81,15 @@ class _$RootStateCopyWithImpl<$Res> implements $RootStateCopyWith<$Res> {
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController as ScrollController,
+      hasInternetConnection: hasInternetConnection == freezed
+          ? _value.hasInternetConnection
+          : hasInternetConnection as bool,
+      fcmIsConfigured: fcmIsConfigured == freezed
+          ? _value.fcmIsConfigured
+          : fcmIsConfigured as bool,
+      notification: notification == freezed
+          ? _value.notification
+          : notification as Map<String, dynamic>,
     ));
   }
 }
@@ -78,7 +102,10 @@ abstract class _$RootStateCopyWith<$Res> implements $RootStateCopyWith<$Res> {
   $Res call(
       {int currentIndex,
       bool bottomNavVisibility,
-      ScrollController scrollController});
+      ScrollController scrollController,
+      bool hasInternetConnection,
+      bool fcmIsConfigured,
+      Map<String, dynamic> notification});
 }
 
 class __$RootStateCopyWithImpl<$Res> extends _$RootStateCopyWithImpl<$Res>
@@ -94,6 +121,9 @@ class __$RootStateCopyWithImpl<$Res> extends _$RootStateCopyWithImpl<$Res>
     Object currentIndex = freezed,
     Object bottomNavVisibility = freezed,
     Object scrollController = freezed,
+    Object hasInternetConnection = freezed,
+    Object fcmIsConfigured = freezed,
+    Object notification = freezed,
   }) {
     return _then(_RootState(
       currentIndex:
@@ -104,17 +134,32 @@ class __$RootStateCopyWithImpl<$Res> extends _$RootStateCopyWithImpl<$Res>
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController as ScrollController,
+      hasInternetConnection: hasInternetConnection == freezed
+          ? _value.hasInternetConnection
+          : hasInternetConnection as bool,
+      fcmIsConfigured: fcmIsConfigured == freezed
+          ? _value.fcmIsConfigured
+          : fcmIsConfigured as bool,
+      notification: notification == freezed
+          ? _value.notification
+          : notification as Map<String, dynamic>,
     ));
   }
 }
 
-class _$_RootState with DiagnosticableTreeMixin implements _RootState {
+class _$_RootState extends _RootState with DiagnosticableTreeMixin {
   const _$_RootState(
       {this.currentIndex = 0,
       this.bottomNavVisibility = true,
-      this.scrollController})
+      this.scrollController,
+      this.hasInternetConnection = false,
+      this.fcmIsConfigured = false,
+      this.notification})
       : assert(currentIndex != null),
-        assert(bottomNavVisibility != null);
+        assert(bottomNavVisibility != null),
+        assert(hasInternetConnection != null),
+        assert(fcmIsConfigured != null),
+        super._();
 
   @JsonKey(defaultValue: 0)
   @override
@@ -124,10 +169,18 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
   final bool bottomNavVisibility;
   @override
   final ScrollController scrollController;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool hasInternetConnection;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool fcmIsConfigured;
+  @override
+  final Map<String, dynamic> notification;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RootState(currentIndex: $currentIndex, bottomNavVisibility: $bottomNavVisibility, scrollController: $scrollController)';
+    return 'RootState(currentIndex: $currentIndex, bottomNavVisibility: $bottomNavVisibility, scrollController: $scrollController, hasInternetConnection: $hasInternetConnection, fcmIsConfigured: $fcmIsConfigured, notification: $notification)';
   }
 
   @override
@@ -137,7 +190,10 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
       ..add(DiagnosticsProperty('type', 'RootState'))
       ..add(DiagnosticsProperty('currentIndex', currentIndex))
       ..add(DiagnosticsProperty('bottomNavVisibility', bottomNavVisibility))
-      ..add(DiagnosticsProperty('scrollController', scrollController));
+      ..add(DiagnosticsProperty('scrollController', scrollController))
+      ..add(DiagnosticsProperty('hasInternetConnection', hasInternetConnection))
+      ..add(DiagnosticsProperty('fcmIsConfigured', fcmIsConfigured))
+      ..add(DiagnosticsProperty('notification', notification));
   }
 
   @override
@@ -152,7 +208,16 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
                     .equals(other.bottomNavVisibility, bottomNavVisibility)) &&
             (identical(other.scrollController, scrollController) ||
                 const DeepCollectionEquality()
-                    .equals(other.scrollController, scrollController)));
+                    .equals(other.scrollController, scrollController)) &&
+            (identical(other.hasInternetConnection, hasInternetConnection) ||
+                const DeepCollectionEquality().equals(
+                    other.hasInternetConnection, hasInternetConnection)) &&
+            (identical(other.fcmIsConfigured, fcmIsConfigured) ||
+                const DeepCollectionEquality()
+                    .equals(other.fcmIsConfigured, fcmIsConfigured)) &&
+            (identical(other.notification, notification) ||
+                const DeepCollectionEquality()
+                    .equals(other.notification, notification)));
   }
 
   @override
@@ -160,18 +225,25 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(currentIndex) ^
       const DeepCollectionEquality().hash(bottomNavVisibility) ^
-      const DeepCollectionEquality().hash(scrollController);
+      const DeepCollectionEquality().hash(scrollController) ^
+      const DeepCollectionEquality().hash(hasInternetConnection) ^
+      const DeepCollectionEquality().hash(fcmIsConfigured) ^
+      const DeepCollectionEquality().hash(notification);
 
   @override
   _$RootStateCopyWith<_RootState> get copyWith =>
       __$RootStateCopyWithImpl<_RootState>(this, _$identity);
 }
 
-abstract class _RootState implements RootState {
+abstract class _RootState extends RootState {
+  const _RootState._() : super._();
   const factory _RootState(
       {int currentIndex,
       bool bottomNavVisibility,
-      ScrollController scrollController}) = _$_RootState;
+      ScrollController scrollController,
+      bool hasInternetConnection,
+      bool fcmIsConfigured,
+      Map<String, dynamic> notification}) = _$_RootState;
 
   @override
   int get currentIndex;
@@ -179,6 +251,12 @@ abstract class _RootState implements RootState {
   bool get bottomNavVisibility;
   @override
   ScrollController get scrollController;
+  @override
+  bool get hasInternetConnection;
+  @override
+  bool get fcmIsConfigured;
+  @override
+  Map<String, dynamic> get notification;
   @override
   _$RootStateCopyWith<_RootState> get copyWith;
 }

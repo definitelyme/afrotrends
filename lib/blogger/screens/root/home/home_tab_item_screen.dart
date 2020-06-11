@@ -1,4 +1,5 @@
 import 'package:afrotrends/blogger/app/blocs/home_screen_bloc/bloc.dart';
+import 'package:afrotrends/blogger/app/blocs/root_bloc/bloc.dart';
 import 'package:afrotrends/blogger/domain/entities/post.dart';
 import 'package:afrotrends/blogger/domain/routeArgs/model_route_arg.dart';
 import 'package:afrotrends/blogger/screens/post_screen.dart';

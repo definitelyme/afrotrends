@@ -27,9 +27,9 @@ abstract class ForYouScreenState implements _$ForYouScreenState {
   }) = _ForYouScreenState;
 
   factory ForYouScreenState.initial() => ForYouScreenState(
-        categoriesController: ScrollController(),
-        horizontalPostsController: ScrollController(),
-        verticalPostsController: ScrollController(),
+        categoriesController: ScrollController(keepScrollOffset: true),
+        horizontalPostsController: ScrollController(keepScrollOffset: true),
+        verticalPostsController: ScrollController(keepScrollOffset: true),
         pagesCount: 1,
       );
 
