@@ -11,6 +11,9 @@ abstract class RootState with _$RootState {
     @Default(0) int currentIndex,
     @Default(true) bool bottomNavVisibility,
     ScrollController scrollController,
+    @Default(false) bool hasInternetConnection,
+    @Default(false) bool fcmIsConfigured,
+    Map<String, dynamic> notification,
   }) = _RootState;
 
   factory RootState.initial() => RootState(scrollController: ScrollController());

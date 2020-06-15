@@ -6,7 +6,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -44,7 +44,11 @@ dependencies:
   shimmer: ^1.1.1
   html:
   flutter_html_view: ^0.5.11
-#  flutter_html: ^1.0.0
+  shared_preferences: ^0.5.7+3
+  # FCM Messaging service
+  firebase_messaging: ^6.0.16
+  # A cross platform plugin for displaying local notifications.
+  flutter_local_notifications: ^1.4.4+1
 
 dev_dependencies:
   flutter_driver:
