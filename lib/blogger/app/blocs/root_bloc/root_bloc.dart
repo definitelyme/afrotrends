@@ -1,26 +1,17 @@
-import 'dart:async';
-
-import 'package:afrotrends/blogger/domain/facades/auth_facade.dart';
-import 'package:afrotrends/blogger/infrastructure/firebase/push_notification.dart';
+import 'package:afrotrends/blogger/infrastructure/notification_impls/push_notification.dart';
 import 'package:bloc/bloc.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-
 import './bloc.dart';
 
-@injectable
 class RootBloc extends Bloc<RootEvent, RootState> {
-  final AuthFacade _authFacade;
   final PushNotification _pushNotification;
   final DataConnectionChecker _connectionChecker;
 
   RootBloc({
-    @required AuthFacade authFacade,
     @required PushNotification pushNotification,
     @required DataConnectionChecker connectionChecker,
-  })  : _authFacade = authFacade,
-        _pushNotification = pushNotification,
+  })  : _pushNotification = pushNotification,
         _connectionChecker = connectionChecker;
 
   @override
@@ -28,23 +19,14 @@ class RootBloc extends Bloc<RootEvent, RootState> {
 
   @override
   Stream<RootState> mapEventToState(
-    RootEvent event,
-  ) async* {
+      RootEvent event,
+      ) async* {
     yield* event.map(
       updatePageIndex: (e) async* {
         yield state.copyWith(currentIndex: e.index);
       },
       updateBottomNavVisibility: (e) async* {
         yield state.copyWith(bottomNavVisibility: e.isVisible);
-      },
-      createAnonymousUser: (e) async* {
-        if (await _connectionChecker.hasConnection) {
-          await _authFacade.anonymousAuthentication();
-          _pushNotification.registerDevice();
-          yield state.copyWith(hasInternetConnection: true);
-        } else {
-          yield state.copyWith(hasInternetConnection: false);
-        }
       },
       configurePushNotification: (e) async* {
         if (!state.fcmIsConfigured)
@@ -60,6 +42,13 @@ class RootBloc extends Bloc<RootEvent, RootState> {
             },
           );
         yield state.copyWith(fcmIsConfigured: true);
+      },
+      registerDeviceOnAfrotrends: (e) async* {
+        var isConnected = await _connectionChecker.hasConnection;
+        if(!isConnected)
+          yield state.copyWith(hasInternetConnection: false);
+        // else if (isConnected && state.fcmIsConfigured)
+        //   _pushNotification.registerDevice()
       },
       onMessage: (e) async* {
         yield state.copyWith(notification: e.data);

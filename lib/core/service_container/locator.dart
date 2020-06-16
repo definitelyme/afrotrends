@@ -5,4 +5,4 @@ import 'package:injectable/injectable.dart';
 GetIt getIt = GetIt.instance;
 
 @injectableInit
-void serviceLocator(String env) => $initGetIt(getIt, environment: env);
+Future<void> serviceLocator(String env) async => await $initGetIt(getIt, environment: env);

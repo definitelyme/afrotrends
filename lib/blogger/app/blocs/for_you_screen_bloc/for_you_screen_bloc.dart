@@ -13,7 +13,7 @@ import 'package:meta/meta.dart';
 
 import './bloc.dart';
 
-@Singleton()
+@injectable
 class ForYouScreenBloc extends Bloc<ForYouScreenEvent, ForYouScreenState> {
   final PostFacade _postFacade;
   final CategoryFacade _categoryFacade;

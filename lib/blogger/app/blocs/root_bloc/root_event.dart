@@ -9,10 +9,10 @@ abstract class RootEvent with _$RootEvent {
   const factory RootEvent.updatePageIndex(int index) = _UpdatePageIndex;
 
   const factory RootEvent.updateBottomNavVisibility(bool isVisible) = _UpdateBottomNavVisiblity;
-  
-  const factory RootEvent.createAnonymousUser() = _MakeAnonymousUser;
-  
+
   const factory RootEvent.configurePushNotification() = _ConfigurePushNotifications;
+
+  const factory RootEvent.registerDeviceOnAfrotrends() = _RegisterDevice;
   
   const factory RootEvent.onMessage(Map<String, dynamic> data) = _FCM_OnMessage;
   

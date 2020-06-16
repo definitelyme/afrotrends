@@ -4,50 +4,42 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:afrotrends/core/service_container/modules/general_module.dart';
+import 'package:afrotrends/core/service_container/modules/facade_module.dart';
+import 'package:http/src/client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
-import 'package:afrotrends/core/service_container/modules/firebase_module.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:afrotrends/blogger/infrastructure/auth/firestore_auth_impl.dart';
 import 'package:afrotrends/core/service_container/modules/notification_module.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/src/flutter_local_notifications_plugin.dart';
 import 'package:afrotrends/blogger/infrastructure/wp_impl/media_facade_impl.dart';
-import 'package:afrotrends/blogger/infrastructure/firebase/push_notification.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:afrotrends/core/service_container/modules/cache_module.dart';
+import 'package:afrotrends/blogger/infrastructure/notification_impls/fcm_token_cache_impl.dart';
 import 'package:afrotrends/blogger/infrastructure/wp_impl/user_facade_impl.dart';
-import 'package:afrotrends/blogger/infrastructure/auth/firebase_auth_impl.dart';
-import 'package:afrotrends/blogger/domain/facades/auth_facade.dart';
 import 'package:afrotrends/blogger/infrastructure/wp_impl/category_facade_impl.dart';
 import 'package:afrotrends/blogger/infrastructure/wp_impl/post_facade_impl.dart';
-import 'package:afrotrends/blogger/app/blocs/root_bloc/root_bloc.dart';
+import 'package:afrotrends/blogger/infrastructure/notification_impls/push_notification.dart';
 import 'package:afrotrends/blogger/app/blocs/for_you_screen_bloc/for_you_screen_bloc.dart';
 import 'package:afrotrends/blogger/app/blocs/home_screen_bloc/home_screen_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-void $initGetIt(GetIt g, {String environment}) {
-  final generalModule = _$GeneralModule();
-  final firebaseModule = _$FirebaseModule();
+Future<void> $initGetIt(GetIt g, {String environment}) async {
+  final facadeModule = _$FacadeModule();
   final notificationModule = _$NotificationModule();
+  final cacheModule = _$CacheModule();
+  g.registerLazySingleton<Client>(() => facadeModule.client);
   g.registerLazySingleton<DataConnectionChecker>(
-      () => generalModule.connectionChecker);
-  g.registerLazySingleton<Dio>(() => generalModule.dio);
-  g.registerLazySingleton<FirebaseAuth>(() => firebaseModule.firebaseAuth);
-  g.registerLazySingleton<FirebaseMessaging>(() => firebaseModule.fcm);
-  g.registerLazySingleton<Firestore>(() => firebaseModule.firestore);
-  g.registerLazySingleton<FirestoreAuthImpl>(() => FirestoreAuthImpl(
-      firestore: g<Firestore>(), firebaseAuth: g<FirebaseAuth>()));
+      () => facadeModule.connectionChecker);
+  g.registerLazySingleton<Dio>(() => facadeModule.dio);
+  g.registerLazySingleton<FirebaseMessaging>(() => notificationModule.fcm);
+  g.registerLazySingleton<FlutterLocalNotificationsPlugin>(
+      () => notificationModule.flutterLocalNotificationsPlugin);
   g.registerLazySingleton<MediaFacade>(() => MediaFacade(client: g<Dio>()));
-  g.registerLazySingleton<PushNotification>(() => PushNotification(
-        messaging: g<FirebaseMessaging>(),
-        firestoreAuthImpl: g<FirestoreAuthImpl>(),
-        dio: g<Dio>(),
-      ));
-  g.registerLazySingleton<UserFacade>(() => UserFacade(client: g<Dio>()));
-  g.registerLazySingleton<AuthFacade>(() => FirebaseAuthImpl(
-      firebaseAuth: g<FirebaseAuth>(),
-      firestoreAuthImpl: g<FirestoreAuthImpl>()));
+  final sharedPreferences = await cacheModule.prefs;
+  g.registerFactory<SharedPreferences>(() => sharedPreferences);
+  g.registerLazySingleton<TokenCacheImpl>(
+      () => TokenCacheImpl(preferences: g<SharedPreferences>()));
+  g.registerLazySingleton<UserFacade>(() => UserFacade(client: g<Client>()));
   g.registerLazySingleton<CategoryFacade>(
       () => CategoryFacade(client: g<Dio>()));
   g.registerLazySingleton<PostFacade>(() => PostFacade(
@@ -56,23 +48,19 @@ void $initGetIt(GetIt g, {String environment}) {
         userFacade: g<UserFacade>(),
         mediaFacade: g<MediaFacade>(),
       ));
-  g.registerFactory<RootBloc>(() => RootBloc(
-        authFacade: g<AuthFacade>(),
-        pushNotification: g<PushNotification>(),
-        connectionChecker: g<DataConnectionChecker>(),
+  g.registerLazySingleton<PushNotification>(() => PushNotification(
+        messaging: g<FirebaseMessaging>(),
+        tokenCacheImpl: g<TokenCacheImpl>(),
+        dio: g<Dio>(),
       ));
-
-  //Eager singletons must be registered in the right order
-  g.registerSingleton<FlutterLocalNotificationsPlugin>(
-      notificationModule.flutterLocalNotificationsPlugin);
-  g.registerSingleton<ForYouScreenBloc>(ForYouScreenBloc(
+  g.registerFactory<ForYouScreenBloc>(() => ForYouScreenBloc(
       postFacade: g<PostFacade>(), categoryFacade: g<CategoryFacade>()));
-  g.registerSingleton<HomeScreenBloc>(HomeScreenBloc(
+  g.registerFactory<HomeScreenBloc>(() => HomeScreenBloc(
       postFacade: g<PostFacade>(), categoryFacade: g<CategoryFacade>()));
 }
 
-class _$GeneralModule extends GeneralModule {}
-
-class _$FirebaseModule extends FirebaseModule {}
+class _$FacadeModule extends FacadeModule {}
 
 class _$NotificationModule extends NotificationModule {}
+
+class _$CacheModule extends CacheModule {}

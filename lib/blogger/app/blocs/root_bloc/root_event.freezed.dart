@@ -24,12 +24,12 @@ class _$RootEventTearOff {
     );
   }
 
-  _MakeAnonymousUser createAnonymousUser() {
-    return const _MakeAnonymousUser();
-  }
-
   _ConfigurePushNotifications configurePushNotification() {
     return const _ConfigurePushNotifications();
+  }
+
+  _RegisterDevice registerDeviceOnAfrotrends() {
+    return const _RegisterDevice();
   }
 
   _FCM_OnMessage onMessage(Map<String, dynamic> data) {
@@ -65,8 +65,8 @@ mixin _$RootEvent {
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -76,8 +76,8 @@ mixin _$RootEvent {
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -88,9 +88,9 @@ mixin _$RootEvent {
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -100,8 +100,8 @@ mixin _$RootEvent {
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -191,8 +191,8 @@ class _$_UpdatePageIndex
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -200,8 +200,8 @@ class _$_UpdatePageIndex
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -214,8 +214,8 @@ class _$_UpdatePageIndex
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -234,9 +234,9 @@ class _$_UpdatePageIndex
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -244,8 +244,8 @@ class _$_UpdatePageIndex
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -258,8 +258,8 @@ class _$_UpdatePageIndex
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -353,8 +353,8 @@ class _$_UpdateBottomNavVisiblity
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -362,8 +362,8 @@ class _$_UpdateBottomNavVisiblity
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -376,8 +376,8 @@ class _$_UpdateBottomNavVisiblity
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -396,9 +396,9 @@ class _$_UpdateBottomNavVisiblity
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -406,8 +406,8 @@ class _$_UpdateBottomNavVisiblity
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -420,8 +420,8 @@ class _$_UpdateBottomNavVisiblity
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -442,140 +442,6 @@ abstract class _UpdateBottomNavVisiblity implements RootEvent {
 
   bool get isVisible;
   _$UpdateBottomNavVisiblityCopyWith<_UpdateBottomNavVisiblity> get copyWith;
-}
-
-abstract class _$MakeAnonymousUserCopyWith<$Res> {
-  factory _$MakeAnonymousUserCopyWith(
-          _MakeAnonymousUser value, $Res Function(_MakeAnonymousUser) then) =
-      __$MakeAnonymousUserCopyWithImpl<$Res>;
-}
-
-class __$MakeAnonymousUserCopyWithImpl<$Res>
-    extends _$RootEventCopyWithImpl<$Res>
-    implements _$MakeAnonymousUserCopyWith<$Res> {
-  __$MakeAnonymousUserCopyWithImpl(
-      _MakeAnonymousUser _value, $Res Function(_MakeAnonymousUser) _then)
-      : super(_value, (v) => _then(v as _MakeAnonymousUser));
-
-  @override
-  _MakeAnonymousUser get _value => super._value as _MakeAnonymousUser;
-}
-
-class _$_MakeAnonymousUser
-    with DiagnosticableTreeMixin
-    implements _MakeAnonymousUser {
-  const _$_MakeAnonymousUser();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RootEvent.createAnonymousUser()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RootEvent.createAnonymousUser'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _MakeAnonymousUser);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result updatePageIndex(int index),
-    @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
-    @required Result configurePushNotification(),
-    @required Result onMessage(Map<String, dynamic> data),
-    @required Result onResume(Map<String, dynamic> data),
-    @required Result onLaunch(Map<String, dynamic> data),
-    @required Result onBackgroundMessage(Map<String, dynamic> data),
-  }) {
-    assert(updatePageIndex != null);
-    assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
-    assert(configurePushNotification != null);
-    assert(onMessage != null);
-    assert(onResume != null);
-    assert(onLaunch != null);
-    assert(onBackgroundMessage != null);
-    return createAnonymousUser();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result updatePageIndex(int index),
-    Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
-    Result configurePushNotification(),
-    Result onMessage(Map<String, dynamic> data),
-    Result onResume(Map<String, dynamic> data),
-    Result onLaunch(Map<String, dynamic> data),
-    Result onBackgroundMessage(Map<String, dynamic> data),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (createAnonymousUser != null) {
-      return createAnonymousUser();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result updatePageIndex(_UpdatePageIndex value),
-    @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
-    @required
-        Result configurePushNotification(_ConfigurePushNotifications value),
-    @required Result onMessage(_FCM_OnMessage value),
-    @required Result onResume(_FCM_OnResume value),
-    @required Result onLaunch(_FCM_OnLaunch value),
-    @required Result onBackgroundMessage(_FCM_OnBackgroundMessage value),
-  }) {
-    assert(updatePageIndex != null);
-    assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
-    assert(configurePushNotification != null);
-    assert(onMessage != null);
-    assert(onResume != null);
-    assert(onLaunch != null);
-    assert(onBackgroundMessage != null);
-    return createAnonymousUser(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result updatePageIndex(_UpdatePageIndex value),
-    Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
-    Result configurePushNotification(_ConfigurePushNotifications value),
-    Result onMessage(_FCM_OnMessage value),
-    Result onResume(_FCM_OnResume value),
-    Result onLaunch(_FCM_OnLaunch value),
-    Result onBackgroundMessage(_FCM_OnBackgroundMessage value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (createAnonymousUser != null) {
-      return createAnonymousUser(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MakeAnonymousUser implements RootEvent {
-  const factory _MakeAnonymousUser() = _$_MakeAnonymousUser;
 }
 
 abstract class _$ConfigurePushNotificationsCopyWith<$Res> {
@@ -627,8 +493,8 @@ class _$_ConfigurePushNotifications
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -636,8 +502,8 @@ class _$_ConfigurePushNotifications
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -650,8 +516,8 @@ class _$_ConfigurePushNotifications
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -670,9 +536,9 @@ class _$_ConfigurePushNotifications
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -680,8 +546,8 @@ class _$_ConfigurePushNotifications
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -694,8 +560,8 @@ class _$_ConfigurePushNotifications
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -712,6 +578,140 @@ class _$_ConfigurePushNotifications
 
 abstract class _ConfigurePushNotifications implements RootEvent {
   const factory _ConfigurePushNotifications() = _$_ConfigurePushNotifications;
+}
+
+abstract class _$RegisterDeviceCopyWith<$Res> {
+  factory _$RegisterDeviceCopyWith(
+          _RegisterDevice value, $Res Function(_RegisterDevice) then) =
+      __$RegisterDeviceCopyWithImpl<$Res>;
+}
+
+class __$RegisterDeviceCopyWithImpl<$Res> extends _$RootEventCopyWithImpl<$Res>
+    implements _$RegisterDeviceCopyWith<$Res> {
+  __$RegisterDeviceCopyWithImpl(
+      _RegisterDevice _value, $Res Function(_RegisterDevice) _then)
+      : super(_value, (v) => _then(v as _RegisterDevice));
+
+  @override
+  _RegisterDevice get _value => super._value as _RegisterDevice;
+}
+
+class _$_RegisterDevice
+    with DiagnosticableTreeMixin
+    implements _RegisterDevice {
+  const _$_RegisterDevice();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RootEvent.registerDeviceOnAfrotrends()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'RootEvent.registerDeviceOnAfrotrends'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _RegisterDevice);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result updatePageIndex(int index),
+    @required Result updateBottomNavVisibility(bool isVisible),
+    @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
+    @required Result onMessage(Map<String, dynamic> data),
+    @required Result onResume(Map<String, dynamic> data),
+    @required Result onLaunch(Map<String, dynamic> data),
+    @required Result onBackgroundMessage(Map<String, dynamic> data),
+  }) {
+    assert(updatePageIndex != null);
+    assert(updateBottomNavVisibility != null);
+    assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
+    assert(onMessage != null);
+    assert(onResume != null);
+    assert(onLaunch != null);
+    assert(onBackgroundMessage != null);
+    return registerDeviceOnAfrotrends();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result updatePageIndex(int index),
+    Result updateBottomNavVisibility(bool isVisible),
+    Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
+    Result onMessage(Map<String, dynamic> data),
+    Result onResume(Map<String, dynamic> data),
+    Result onLaunch(Map<String, dynamic> data),
+    Result onBackgroundMessage(Map<String, dynamic> data),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (registerDeviceOnAfrotrends != null) {
+      return registerDeviceOnAfrotrends();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result updatePageIndex(_UpdatePageIndex value),
+    @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
+    @required
+        Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
+    @required Result onMessage(_FCM_OnMessage value),
+    @required Result onResume(_FCM_OnResume value),
+    @required Result onLaunch(_FCM_OnLaunch value),
+    @required Result onBackgroundMessage(_FCM_OnBackgroundMessage value),
+  }) {
+    assert(updatePageIndex != null);
+    assert(updateBottomNavVisibility != null);
+    assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
+    assert(onMessage != null);
+    assert(onResume != null);
+    assert(onLaunch != null);
+    assert(onBackgroundMessage != null);
+    return registerDeviceOnAfrotrends(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result updatePageIndex(_UpdatePageIndex value),
+    Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
+    Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
+    Result onMessage(_FCM_OnMessage value),
+    Result onResume(_FCM_OnResume value),
+    Result onLaunch(_FCM_OnLaunch value),
+    Result onBackgroundMessage(_FCM_OnBackgroundMessage value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (registerDeviceOnAfrotrends != null) {
+      return registerDeviceOnAfrotrends(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RegisterDevice implements RootEvent {
+  const factory _RegisterDevice() = _$_RegisterDevice;
 }
 
 abstract class _$FCM_OnMessageCopyWith<$Res> {
@@ -780,8 +780,8 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -789,8 +789,8 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -803,8 +803,8 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -823,9 +823,9 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -833,8 +833,8 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -847,8 +847,8 @@ class _$_FCM_OnMessage with DiagnosticableTreeMixin implements _FCM_OnMessage {
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -936,8 +936,8 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -945,8 +945,8 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -959,8 +959,8 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -979,9 +979,9 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -989,8 +989,8 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -1003,8 +1003,8 @@ class _$_FCM_OnResume with DiagnosticableTreeMixin implements _FCM_OnResume {
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -1092,8 +1092,8 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -1101,8 +1101,8 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -1115,8 +1115,8 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -1135,9 +1135,9 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -1145,8 +1145,8 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -1159,8 +1159,8 @@ class _$_FCM_OnLaunch with DiagnosticableTreeMixin implements _FCM_OnLaunch {
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),
@@ -1253,8 +1253,8 @@ class _$_FCM_OnBackgroundMessage
   Result when<Result extends Object>({
     @required Result updatePageIndex(int index),
     @required Result updateBottomNavVisibility(bool isVisible),
-    @required Result createAnonymousUser(),
     @required Result configurePushNotification(),
+    @required Result registerDeviceOnAfrotrends(),
     @required Result onMessage(Map<String, dynamic> data),
     @required Result onResume(Map<String, dynamic> data),
     @required Result onLaunch(Map<String, dynamic> data),
@@ -1262,8 +1262,8 @@ class _$_FCM_OnBackgroundMessage
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -1276,8 +1276,8 @@ class _$_FCM_OnBackgroundMessage
   Result maybeWhen<Result extends Object>({
     Result updatePageIndex(int index),
     Result updateBottomNavVisibility(bool isVisible),
-    Result createAnonymousUser(),
     Result configurePushNotification(),
+    Result registerDeviceOnAfrotrends(),
     Result onMessage(Map<String, dynamic> data),
     Result onResume(Map<String, dynamic> data),
     Result onLaunch(Map<String, dynamic> data),
@@ -1296,9 +1296,9 @@ class _$_FCM_OnBackgroundMessage
   Result map<Result extends Object>({
     @required Result updatePageIndex(_UpdatePageIndex value),
     @required Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    @required Result createAnonymousUser(_MakeAnonymousUser value),
     @required
         Result configurePushNotification(_ConfigurePushNotifications value),
+    @required Result registerDeviceOnAfrotrends(_RegisterDevice value),
     @required Result onMessage(_FCM_OnMessage value),
     @required Result onResume(_FCM_OnResume value),
     @required Result onLaunch(_FCM_OnLaunch value),
@@ -1306,8 +1306,8 @@ class _$_FCM_OnBackgroundMessage
   }) {
     assert(updatePageIndex != null);
     assert(updateBottomNavVisibility != null);
-    assert(createAnonymousUser != null);
     assert(configurePushNotification != null);
+    assert(registerDeviceOnAfrotrends != null);
     assert(onMessage != null);
     assert(onResume != null);
     assert(onLaunch != null);
@@ -1320,8 +1320,8 @@ class _$_FCM_OnBackgroundMessage
   Result maybeMap<Result extends Object>({
     Result updatePageIndex(_UpdatePageIndex value),
     Result updateBottomNavVisibility(_UpdateBottomNavVisiblity value),
-    Result createAnonymousUser(_MakeAnonymousUser value),
     Result configurePushNotification(_ConfigurePushNotifications value),
+    Result registerDeviceOnAfrotrends(_RegisterDevice value),
     Result onMessage(_FCM_OnMessage value),
     Result onResume(_FCM_OnResume value),
     Result onLaunch(_FCM_OnLaunch value),

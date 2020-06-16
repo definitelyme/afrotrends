@@ -6,10 +6,9 @@ class User extends Model {
   final String link;
   final String slug;
   final String avatarUrl;
-  final String fcmToken;
 
-  User({this.id, this.name, this.link, this.slug, this.avatarUrl, this.fcmToken}) : super(id: id);
+  User({this.id, this.name, this.link, this.slug, this.avatarUrl}) : super(id: id);
 
   @override
-  List<Object> get props => [id, name, link, slug, avatarUrl, fcmToken, createdAt, updatedAt];
+  List<Object> get props => [id, name, link, slug, avatarUrl, createdAt, updatedAt];
 }
