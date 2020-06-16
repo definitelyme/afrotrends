@@ -25,11 +25,15 @@ class RootChild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // BlocProvider.of<RootBloc>(context).add(RootEvent.configurePushNotification());
+
     return BlocBuilder<RootBloc, RootState>(
 //      bloc: BlocProvider.of<RootBloc>(context),
       builder: (context, state) {
         // ignore: close_sinks
         var bloc = context.bloc<RootBloc>();
+
+        print(bloc.state.notification);
 
         bloc.state.scrollController.addListener(() {
           var controller = bloc.state.scrollController;

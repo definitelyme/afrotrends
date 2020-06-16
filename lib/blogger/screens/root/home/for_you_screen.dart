@@ -21,187 +21,188 @@ import 'package:intl/intl.dart';
 class ForYouScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ForYouScreenBloc, ForYouScreenState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return ListView(
-            key: ValueKey("for-you-listView"),
-            padding: defaultEdgeSpacing(context, right: 0.0),
+    // ignore: close_sinks
+    var bloc = BlocProvider.of<ForYouScreenBloc>(context);
+    
+    return ListView(
+      key: ValueKey("for-you-listView"),
+      padding: defaultEdgeSpacing(context, right: 0.0),
+      children: [
+        SizedBox(height: Get.height * 0.03),
+        Container(
+          padding: EdgeInsets.only(right: deviceMargin(context)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(height: Get.height * 0.03),
-              Container(
-                padding: EdgeInsets.only(right: deviceMargin(context)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("LATEST NEWS", style: Get.textTheme.subtitle2.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
-                    Text(
-                      DateFormat.yMMMEd().format(DateTime.now()),
-                      style: Get.textTheme.bodyText1.copyWith(color: AppColors.oylexAccent.shade300),
-                    ),
-                  ],
-                ),
+              Text("LATEST NEWS", style: Get.textTheme.subtitle2.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
+              Text(
+                DateFormat.yMMMEd().format(DateTime.now()),
+                style: Get.textTheme.bodyText1.copyWith(color: AppColors.oylexAccent.shade300),
               ),
-              SizedBox(height: Get.height * 0.02),
-              Container(
-                height: Get.height * 0.24,
-                child: StreamBuilder<ForYouScreenState>(
-                    stream: context.bloc<ForYouScreenBloc>(),
-                    builder: (context, snapshot) {
-                      if (snapshot.data == null || snapshot.data.latestNews == [] || snapshot.data.latestNews.isEmpty)
-                        return ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
-                            itemBuilder: (context, index) {
-                              return ShimmerBottomContent(
-                                width: Get.width * 0.7,
-                                shimmerBaseColor: Colors.grey[300],
-                                shimmerHighlightColor: Colors.grey[100],
-                                margin: EdgeInsets.only(right: Get.width * 0.06),
-                                boxColor: Colors.black,
-                                borderRadius: 8.0,
-                              );
-                            });
-
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        controller: snapshot.data.horizontalPostsController,
-                        shrinkWrap: true,
-                        physics: defaultScrollPhysics(),
-                        itemCount: snapshot.data.latestNews.length,
-                        itemBuilder: (_, index) => _latestNewsBuilder(snapshot.data.latestNews.elementAt(index)),
-                      );
-                    }),
-              ),
-              SizedBox(height: Get.height * 0.04),
-              Container(
-                padding: EdgeInsets.only(right: deviceMargin(context)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("POPULAR TOPICS", style: Get.textTheme.subtitle1.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
-                  ],
-                ),
-              ),
-              SizedBox(height: Get.height * 0.01),
-              Container(
-                height: Get.height * 0.16,
-                child: StreamBuilder<ForYouScreenState>(
-                    stream: context.bloc<ForYouScreenBloc>(),
-                    builder: (context, snapshot) {
-                      if (snapshot.data == null || snapshot.data.categories == [] || snapshot.data.categories.isEmpty)
-                        return ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
-                          itemBuilder: (context, index) {
-                            return RectangleShimmer(
-                              width: Get.width * 0.3,
-                              height: Get.height * 0.16,
-                              margin: EdgeInsets.only(right: Get.width * 0.04),
-                              shimmerBaseColor: Colors.grey[300],
-                              shimmerHighlightColor: Colors.grey[100],
-                              boxColor: Colors.black,
-                              borderRadius: 8.0,
-                            );
-                          },
-                        );
-
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        controller: snapshot.data.categoriesController,
-                        shrinkWrap: true,
-                        physics: defaultScrollPhysics(),
-                        itemCount: snapshot.data.categories.length,
-                        itemBuilder: (context, index) => _popularTopicsBuilder(snapshot.data.categories.elementAt(index)),
-                      );
-                    }),
-              ),
-              SizedBox(height: Get.height * 0.04),
-              Container(
-                padding: EdgeInsets.only(right: deviceMargin(context)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("TRENDING", style: Get.textTheme.subtitle1.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
-                  ],
-                ),
-              ),
-              SizedBox(height: Get.height * 0.01),
-              Container(
-                width: double.infinity,
-                child: StreamBuilder<ForYouScreenState>(
-                    stream: context.bloc<ForYouScreenBloc>(),
-                    builder: (context, snapshot) {
-                      if (snapshot.data == null || snapshot.data.latestNews == [] || snapshot.data.latestNews.isEmpty)
-                        return ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          physics: defaultScrollPhysics(),
-                          itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
-                          itemBuilder: (context, index) => ShimmerRightContent(
-                            width: Get.width,
-                            height: Get.height * 0.17,
-                            margin: EdgeInsets.only(bottom: Get.width * 0.03, right: Get.width * 0.04),
-                            shimmerBaseColor: Colors.grey[300],
-                            shimmerHighlightColor: Colors.grey[100],
-                            boxColor: Colors.black,
-                            borderRadius: 8.0,
-                          ),
-                        );
-
-                      var posts = snapshot.data.latestNews.getRange(3, snapshot.data.latestNews.length);
-
-                      return ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        controller: snapshot.data.verticalPostsController,
-                        shrinkWrap: true,
-                        physics: defaultScrollPhysics(),
-                        itemCount: posts.length,
-                        itemBuilder: (_, index) => _recentSearchedBuilder(posts.elementAt(index)),
-                      );
-                    }),
-              ),
-              SizedBox(height: 10.0),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  context.bloc<ForYouScreenBloc>().state.latestNews == [] || context.bloc<ForYouScreenBloc>().state.latestNews.isEmpty
-                      ? SizedBox.shrink()
-                      : Visibility(
-                          visible: !state.nextPageIsLoading,
-                          replacement: Center(child: CircularProgressIndicator()),
-                          child: RaisedButton(
-                            onPressed: () => context.bloc<ForYouScreenBloc>().add(
-                                  ForYouScreenEvent.appendLatestNews(
-                                    nextPage: context.bloc<ForYouScreenBloc>().state.pagesCount + 1,
-                                  ),
-                                ),
-                            child: Text(
-                              "Load more..",
-                              style: Get.textTheme.button.copyWith(color: Colors.white),
-                            ),
-                            elevation: 0.0,
-                            highlightElevation: 1.0,
-                            color: AppColors.oylexAccent.shade400,
-                            highlightColor: Colors.white12,
-                            splashColor: Colors.white30,
-                            shape: StadiumBorder(),
-                          ),
-                        ),
-                ],
-              ),
-              SizedBox(height: 10.0),
             ],
-          );
-        });
+          ),
+        ),
+        SizedBox(height: Get.height * 0.02),
+        Container(
+          height: Get.height * 0.24,
+          child: StreamBuilder<ForYouScreenState>(
+              stream: bloc,
+              builder: (context, snapshot) {
+                if (snapshot.data == null || snapshot.data.latestNews == [] || snapshot.data.latestNews.isEmpty)
+                  return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
+                      itemBuilder: (context, index) {
+                        return ShimmerBottomContent(
+                          width: Get.width * 0.7,
+                          shimmerBaseColor: Colors.grey[300],
+                          shimmerHighlightColor: Colors.grey[100],
+                          margin: EdgeInsets.only(right: Get.width * 0.06),
+                          boxColor: Colors.black,
+                          borderRadius: 8.0,
+                        );
+                      });
+
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  controller: snapshot.data.horizontalPostsController,
+                  shrinkWrap: true,
+                  physics: defaultScrollPhysics(),
+                  itemCount: snapshot.data.latestNews.length,
+                  itemBuilder: (_, index) => _latestNewsBuilder(snapshot.data.latestNews.elementAt(index)),
+                );
+              }),
+        ),
+        SizedBox(height: Get.height * 0.04),
+        Container(
+          padding: EdgeInsets.only(right: deviceMargin(context)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("POPULAR TOPICS", style: Get.textTheme.subtitle1.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
+            ],
+          ),
+        ),
+        SizedBox(height: Get.height * 0.01),
+        Container(
+          height: Get.height * 0.16,
+          child: StreamBuilder<ForYouScreenState>(
+              stream: bloc,
+              builder: (context, snapshot) {
+                if (snapshot.data == null || snapshot.data.categories == [] || snapshot.data.categories.isEmpty)
+                  return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
+                    itemBuilder: (context, index) {
+                      return RectangleShimmer(
+                        width: Get.width * 0.3,
+                        height: Get.height * 0.16,
+                        margin: EdgeInsets.only(right: Get.width * 0.04),
+                        shimmerBaseColor: Colors.grey[300],
+                        shimmerHighlightColor: Colors.grey[100],
+                        boxColor: Colors.black,
+                        borderRadius: 8.0,
+                      );
+                    },
+                  );
+
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  controller: snapshot.data.categoriesController,
+                  shrinkWrap: true,
+                  physics: defaultScrollPhysics(),
+                  itemCount: snapshot.data.categories.length,
+                  itemBuilder: (context, index) => _popularTopicsBuilder(snapshot.data.categories.elementAt(index)),
+                );
+              }),
+        ),
+        SizedBox(height: Get.height * 0.04),
+        Container(
+          padding: EdgeInsets.only(right: deviceMargin(context)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("TRENDING", style: Get.textTheme.subtitle1.copyWith(color: Colors.grey, fontSize: 15.0, fontWeight: FontWeight.w500)),
+            ],
+          ),
+        ),
+        SizedBox(height: Get.height * 0.01),
+        Container(
+          width: double.infinity,
+          child: StreamBuilder<ForYouScreenState>(
+              stream: bloc,
+              builder: (context, snapshot) {
+                if (snapshot.data == null || snapshot.data.latestNews == [] || snapshot.data.latestNews.isEmpty)
+                  return ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: defaultScrollPhysics(),
+                    itemCount: ((Get.width) / (Get.width * 0.3)).ceil(),
+                    itemBuilder: (context, index) => ShimmerRightContent(
+                      width: Get.width,
+                      height: Get.height * 0.17,
+                      margin: EdgeInsets.only(bottom: Get.width * 0.03, right: Get.width * 0.04),
+                      shimmerBaseColor: Colors.grey[300],
+                      shimmerHighlightColor: Colors.grey[100],
+                      boxColor: Colors.black,
+                      borderRadius: 8.0,
+                    ),
+                  );
+
+                var posts = snapshot.data.latestNews.getRange(3, snapshot.data.latestNews.length);
+
+                return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  controller: snapshot.data.verticalPostsController,
+                  shrinkWrap: true,
+                  physics: defaultScrollPhysics(),
+                  itemCount: posts.length,
+                  itemBuilder: (_, index) => _recentSearchedBuilder(posts.elementAt(index)),
+                );
+              }),
+        ),
+        SizedBox(height: 10.0),
+        BlocBuilder<ForYouScreenBloc, ForYouScreenState>(
+          builder: (context, state){
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Visibility(
+                  visible: bloc.state.nextPageIsLoading || bloc.state.latestNews == [] || bloc.state.latestNews.isEmpty,
+                  replacement: RaisedButton(
+                    onPressed: () => bloc.add(
+                      ForYouScreenEvent.appendLatestNews(
+                        nextPage: bloc.state.pagesCount + 1,
+                      ),
+                    ),
+                    child: Text(
+                      "Load more..",
+                      style: Get.textTheme.button.copyWith(color: Colors.white),
+                    ),
+                    elevation: 0.0,
+                    highlightElevation: 1.0,
+                    color: AppColors.oylexAccent.shade400,
+                    highlightColor: Colors.white12,
+                    splashColor: Colors.white30,
+                    shape: StadiumBorder(),
+                  ),
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+              ],
+            );
+          },
+        ),
+        SizedBox(height: 10.0),
+      ],
+    );
   }
 
   Widget _latestNewsBuilder(Post post) {
 //    var test_key = ValueKey("latest-${post.id}");
 //    if (posts.elementAt(0) == post) test_key = ValueKey("latest-post-single-item-key");
-  
-  String postTitle = parse(parse(post?.title).body.text).documentElement.text;
+
+    String postTitle = parse(parse(post?.title).body.text).documentElement.text;
 
     return Container(
       width: Get.width * 0.7,
@@ -322,7 +323,7 @@ class ForYouScreen extends StatelessWidget {
 
   Widget _recentSearchedBuilder(Post post) {
     String postTitle = parse(parse(post?.title).body.text).documentElement.text;
-    
+
     return Container(
       height: Get.height * 0.17,
       margin: EdgeInsets.only(bottom: Get.width * 0.03, right: Get.width * 0.04),
