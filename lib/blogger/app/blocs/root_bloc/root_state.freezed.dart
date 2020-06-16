@@ -147,7 +147,7 @@ class __$RootStateCopyWithImpl<$Res> extends _$RootStateCopyWithImpl<$Res>
   }
 }
 
-class _$_RootState with DiagnosticableTreeMixin implements _RootState {
+class _$_RootState extends _RootState with DiagnosticableTreeMixin {
   const _$_RootState(
       {this.currentIndex = 0,
       this.bottomNavVisibility = true,
@@ -158,7 +158,8 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
       : assert(currentIndex != null),
         assert(bottomNavVisibility != null),
         assert(hasInternetConnection != null),
-        assert(fcmIsConfigured != null);
+        assert(fcmIsConfigured != null),
+        super._();
 
   @JsonKey(defaultValue: 0)
   @override
@@ -234,7 +235,8 @@ class _$_RootState with DiagnosticableTreeMixin implements _RootState {
       __$RootStateCopyWithImpl<_RootState>(this, _$identity);
 }
 
-abstract class _RootState implements RootState {
+abstract class _RootState extends RootState {
+  const _RootState._() : super._();
   const factory _RootState(
       {int currentIndex,
       bool bottomNavVisibility,

@@ -4,7 +4,6 @@ import 'package:afrotrends/blogger/app/blocs/root_bloc/bloc.dart';
 import 'package:afrotrends/blogger/infrastructure/notification_impls/fcm_token_cache_impl.dart';
 import 'package:afrotrends/blogger/infrastructure/notification_impls/token_model.dart';
 import 'package:afrotrends/core/service_container/locator.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:injectable/injectable.dart';

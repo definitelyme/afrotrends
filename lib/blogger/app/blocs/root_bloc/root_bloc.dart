@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:afrotrends/blogger/infrastructure/notification_impls/push_notification.dart';
 import 'package:bloc/bloc.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
@@ -21,8 +19,8 @@ class RootBloc extends Bloc<RootEvent, RootState> {
 
   @override
   Stream<RootState> mapEventToState(
-    RootEvent event,
-  ) async* {
+      RootEvent event,
+      ) async* {
     yield* event.map(
       updatePageIndex: (e) async* {
         yield state.copyWith(currentIndex: e.index);

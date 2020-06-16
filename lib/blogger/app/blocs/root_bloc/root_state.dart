@@ -6,7 +6,9 @@ part 'root_state.freezed.dart';
 
 @freezed
 @immutable
-abstract class RootState with _$RootState {
+abstract class RootState implements _$RootState {
+  const RootState._();
+
   const factory RootState({
     @Default(0) int currentIndex,
     @Default(true) bool bottomNavVisibility,
