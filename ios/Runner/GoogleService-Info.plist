@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1061311014542-041uq94j6235qoae4c7n13gheiu370gf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1061311014542-041uq94j6235qoae4c7n13gheiu370gf</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1061311014542-lhqi7ct7ru9k1b3ttdkqbnkl7v940jkg.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBDL1TR3yN6fwa4Ejkqldgq7f891gEbeKA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1061311014542</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.afrotrends</string>
+	<key>PROJECT_ID</key>
+	<string>willingie</string>
+	<key>STORAGE_BUCKET</key>
+	<string>willingie.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1061311014542:ios:bcdfd11db5833157da4bdf</string>
+	<key>DATABASE_URL</key>
+	<string>https://willingie.firebaseio.com</string>
+</dict>
+</plist>

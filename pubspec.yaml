@@ -3,7 +3,7 @@ description: A new Flutter application for Afrotrends.com
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.8.0 <3.0.0"
@@ -15,13 +15,18 @@ dependencies:
   # For making http calls
   http:
   dio: ^3.0.9
+#  dio_retry: ^0.1.9-beta
+  retry: ^3.0.0+1
   # Navigate without context,
   # Manage states and inject dependencies
   get: ^2.10.3
   # Service locator
   get_it: ^4.0.2
   # Flutter BloC for state management
-  flutter_bloc: ^4.0.0
+  flutter_bloc: any
+  # A set of most common BLoC use
+  # cases build on top flutter_bloc library.
+  flutter_bloc_patterns: ^0.6.0
   # Functional Programming
   dartz: ^0.9.1
   # Check Internet connectivity
@@ -32,10 +37,10 @@ dependencies:
   freezed_annotation: ^0.7.1
   # for easy dependency injection
   injectable: ^0.4.0+1
+  built_value: any
+  built_collection: any
   # Google Fonts
   #  google_fonts:
-  # Generate application's Icons
-  flutter_launcher_icons: ^0.7.5
   # provides internationalization
   # and localization facilities
   intl: ^0.16.1
@@ -43,22 +48,28 @@ dependencies:
   # Shimmer Skeleton Library.
   shimmer: ^1.1.1
   # For rendering Raw HTML
-  html:
+  html: any
   flutter_html_view: ^0.5.11
   shared_preferences: ^0.5.7+3
   # FCM Messaging service
   firebase_messaging: ^6.0.16
   # A cross platform plugin for displaying local notifications.
   flutter_local_notifications: ^1.4.4+1
+  # A flutter library to show images from the internet and keep them in the cache directory.
+  cached_network_image: any
+
+#dependency_overrides:
 
 dev_dependencies:
   flutter_driver:
     sdk: flutter
   test:
-  bloc_test: ^5.1.0
+  bloc_test: any
   build_runner: ^1.10.0
   freezed: ^0.10.9
   injectable_generator: ^0.4.1
+  flutter_launcher_icons: any
+  built_value_generator: any
 
 flutter:
   uses-material-design: true
