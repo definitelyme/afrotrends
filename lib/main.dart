@@ -5,6 +5,6 @@ import 'package:injectable/injectable.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await serviceProvider(Environment.prod);
+  serviceProvider(Environment.dev);
   runApp(MyApp());
 }
