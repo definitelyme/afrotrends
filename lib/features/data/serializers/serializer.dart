@@ -2,9 +2,9 @@ library serializer;
 
 import 'package:afrotrends/features/data/remote/models/author/exports.dart';
 import 'package:afrotrends/features/data/remote/models/content/content.dart';
+import 'package:afrotrends/features/data/remote/models/extras/exports_extra.dart';
 import 'package:afrotrends/features/data/remote/models/media/featured_image.dart';
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
-import 'package:afrotrends/features/data/remote/models/post/post_custom_fields.dart';
 import 'package:afrotrends/features/data/remote/models/taxonomy/taxonomy.dart';
 import 'package:afrotrends/features/data/remote/models/thumbnail/thumbnail.dart';
 import 'package:built_collection/built_collection.dart';
@@ -17,8 +17,10 @@ part 'serializer.g.dart';
   Post,
   Author,
   Content,
+  PageInfo,
   Taxonomy,
   Thumbnail,
+  PostsResult,
   FeaturedImage,
   PostAdvCustomField,
 ])

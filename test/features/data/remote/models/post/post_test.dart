@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:afrotrends/features/data/remote/models/post/post.dart';
+import 'package:afrotrends/features/data/remote/models/post/exports.dart';
+import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/playground/pizza.dart';
 import 'package:afrotrends/playground/simple.dart';
 import 'package:dio/dio.dart';
@@ -33,16 +34,25 @@ void main() {
     var nullSource = fixture("post/null-post.json");
     when(mockDio.get(any)).thenAnswer((_) async => Response(data: jsonDecode(listSource), statusCode: 200));
 
-    final posts = Post.fromDynamicList(jsonDecode(listSource));
-//    posts.forEach((post) {
+    final posts = PostsResult.fromMap(jsonDecode(listSource));
+    print("Total => ${posts.pageInfo.total}");
+//    posts.items.forEach((post) {
 //      print("Title => ${post.title.rendered}");
 //    });
 
-    final post = Post.fromMap(jsonDecode(singleSource));
-//    print("Single Post title => ${post.title.rendered}");
+    final beforeLimit = DateTime(2019, 06, 05);
+    final afterLimit = DateTime(2002, 02, 18);
 
-    final nullPost = Post.fromMap(jsonDecode(nullSource));
-    print("Null Post data ==> $nullPost");
+    final query = QueryBuilder(
+      taxonomy: TCategory(4),
+    );
+    print("Query => ${query.build()}");
+
+//    final post = Post.fromMap(jsonDecode(singleSource));
+//    print("Single Post title => ${post.title.rendered}");
+//
+//    final nullPost = Post.fromMap(jsonDecode(nullSource));
+//    print("Null Post data ==> $nullPost");
   });
 
   test("builder interface", () async {

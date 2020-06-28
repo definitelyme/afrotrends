@@ -10,10 +10,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Author.serializer)
       ..add(Content.serializer)
       ..add(FeaturedImage.serializer)
+      ..add(PageInfo.serializer)
       ..add(Post.serializer)
       ..add(PostAdvCustomField.serializer)
+      ..add(PostsResult.serializer)
       ..add(Taxonomy.serializer)
       ..add(Thumbnail.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Post)]),
+          () => new ListBuilder<Post>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Taxonomy)]),
           () => new ListBuilder<Taxonomy>())

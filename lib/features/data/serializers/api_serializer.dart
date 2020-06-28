@@ -1,6 +1,6 @@
 library api_serializer;
 
-import 'package:afrotrends/features/domain/api_client/query/query_params.dart';
+import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -8,7 +8,7 @@ import 'package:built_value/standard_json_plugin.dart';
 part 'api_serializer.g.dart';
 
 @SerializersFor(const [
-  QueryParam,
+  Limit,
 ])
 final Serializers clientSerializer = (_$clientSerializer.toBuilder()..addPlugin(StandardJsonPlugin())).build();
 

@@ -128,7 +128,9 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
   String get slug => _$this._slug;
   set slug(String slug) => _$this._slug = slug;
 
-  TaxonomyBuilder();
+  TaxonomyBuilder() {
+    Taxonomy._initializeBuilder(this);
+  }
 
   TaxonomyBuilder get _$this {
     if (_$v != null) {
