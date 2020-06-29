@@ -2,6 +2,10 @@ library query_builder;
 
 import 'package:afrotrends/features/domain/api_client/exports.dart';
 
+// /posts
+// /categories
+// /posts?categories={id}
+
 class QueryBuilder {
   /// Limit result set to all items that have the specified term assigned in the taxonomy.
   final TaxonomyType taxonomy;
@@ -29,19 +33,6 @@ class QueryBuilder {
 
   /// Instantiate a QueryBuilder
   const QueryBuilder({this.taxonomy, this.before, this.after, this.orderBy, this.sortBy, this.perPage = 4, this.offset, this.page = 1});
-
-//  factory QueryBuilder.build({
-//    TaxonomyType taxonomy,
-//    DateTime before,
-//    DateTime after,
-//    Order orderBy,
-//    SortBy sortBy,
-//    int perPage = 4,
-//    int offset,
-//    int page = 1,
-//  }) {
-//    return QueryBuilder._(taxonomy, before, after, orderBy, sortBy, perPage, offset, page);
-//  }
 
   /// Copy the QueryBuilder class with some modifications.
   QueryBuilder copyWith({
@@ -86,7 +77,3 @@ class QueryBuilder {
     return val;
   }
 }
-
-// /posts
-// /categories
-// /posts?categories={id}

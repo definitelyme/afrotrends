@@ -11,20 +11,20 @@ import 'package:test/test.dart';
 
 import '../../../../../fixtures/fixture-reader.dart';
 
-class MockDio extends Mock implements Dio {}
+class MockApiClient extends Mock implements ApiClient<Response> {}
 
 class MockResponse extends Mock implements Response {}
 
 void main() {
-  MockDio mockDio;
+  MockApiClient mockApiClient;
   MockResponse mockResponse;
   SimpleRepo repo;
   Logger logger;
 
   setUp(() {
-    mockDio = MockDio();
+    mockApiClient = MockApiClient();
     mockResponse = MockResponse();
-    repo = SimpleRepo(mockDio);
+    repo = SimpleRepo(mockApiClient);
     logger = Logger(printer: PrettyPrinter(printTime: true));
   });
 
@@ -32,7 +32,7 @@ void main() {
     var listSource = fixture("post/post_list.json");
     var singleSource = fixture("post/post.json");
     var nullSource = fixture("post/null-post.json");
-    when(mockDio.get(any)).thenAnswer((_) async => Response(data: jsonDecode(listSource), statusCode: 200));
+    when(mockApiClient.get(any)).thenAnswer((_) async => Response(data: jsonDecode(listSource), statusCode: 200));
 
     final posts = PostsResult.fromMap(jsonDecode(listSource));
     print("Total => ${posts.pageInfo.total}");
