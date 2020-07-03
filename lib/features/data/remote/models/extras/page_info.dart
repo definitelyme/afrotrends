@@ -10,10 +10,10 @@ part 'page_info.g.dart';
 
 abstract class PageInfo implements Built<PageInfo, PageInfoBuilder> {
   @nullable
-  int get total;
+  String get total;
   @nullable
   @BuiltValueField(wireName: "total_pages")
-  int get totalPages;
+  String get totalPages;
 
   PageInfo._();
 

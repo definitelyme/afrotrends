@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of posts_result;
+part of posts;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<PostsResult> _$postsResultSerializer = new _$PostsResultSerializer();
+Serializer<Posts> _$postsSerializer = new _$PostsSerializer();
 
-class _$PostsResultSerializer implements StructuredSerializer<PostsResult> {
+class _$PostsSerializer implements StructuredSerializer<Posts> {
   @override
-  final Iterable<Type> types = const [PostsResult, _$PostsResult];
+  final Iterable<Type> types = const [Posts, _$Posts];
   @override
-  final String wireName = 'PostsResult';
+  final String wireName = 'Posts';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, PostsResult object,
+  Iterable<Object> serialize(Serializers serializers, Posts object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.pageInfo != null) {
@@ -35,9 +35,9 @@ class _$PostsResultSerializer implements StructuredSerializer<PostsResult> {
   }
 
   @override
-  PostsResult deserialize(Serializers serializers, Iterable<Object> serialized,
+  Posts deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PostsResultBuilder();
+    final result = new PostsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -62,30 +62,28 @@ class _$PostsResultSerializer implements StructuredSerializer<PostsResult> {
   }
 }
 
-class _$PostsResult extends PostsResult {
+class _$Posts extends Posts {
   @override
   final PageInfo pageInfo;
   @override
   final BuiltList<Post> items;
 
-  factory _$PostsResult([void Function(PostsResultBuilder) updates]) =>
-      (new PostsResultBuilder()..update(updates)).build();
+  factory _$Posts([void Function(PostsBuilder) updates]) =>
+      (new PostsBuilder()..update(updates)).build();
 
-  _$PostsResult._({this.pageInfo, this.items}) : super._();
+  _$Posts._({this.pageInfo, this.items}) : super._();
 
   @override
-  PostsResult rebuild(void Function(PostsResultBuilder) updates) =>
+  Posts rebuild(void Function(PostsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PostsResultBuilder toBuilder() => new PostsResultBuilder()..replace(this);
+  PostsBuilder toBuilder() => new PostsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PostsResult &&
-        pageInfo == other.pageInfo &&
-        items == other.items;
+    return other is Posts && pageInfo == other.pageInfo && items == other.items;
   }
 
   @override
@@ -95,15 +93,15 @@ class _$PostsResult extends PostsResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PostsResult')
+    return (newBuiltValueToStringHelper('Posts')
           ..add('pageInfo', pageInfo)
           ..add('items', items))
         .toString();
   }
 }
 
-class PostsResultBuilder implements Builder<PostsResult, PostsResultBuilder> {
-  _$PostsResult _$v;
+class PostsBuilder implements Builder<Posts, PostsBuilder> {
+  _$Posts _$v;
 
   PageInfoBuilder _pageInfo;
   PageInfoBuilder get pageInfo => _$this._pageInfo ??= new PageInfoBuilder();
@@ -113,9 +111,11 @@ class PostsResultBuilder implements Builder<PostsResult, PostsResultBuilder> {
   ListBuilder<Post> get items => _$this._items ??= new ListBuilder<Post>();
   set items(ListBuilder<Post> items) => _$this._items = items;
 
-  PostsResultBuilder();
+  PostsBuilder() {
+    Posts._initializeBuilder(this);
+  }
 
-  PostsResultBuilder get _$this {
+  PostsBuilder get _$this {
     if (_$v != null) {
       _pageInfo = _$v.pageInfo?.toBuilder();
       _items = _$v.items?.toBuilder();
@@ -125,25 +125,24 @@ class PostsResultBuilder implements Builder<PostsResult, PostsResultBuilder> {
   }
 
   @override
-  void replace(PostsResult other) {
+  void replace(Posts other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$PostsResult;
+    _$v = other as _$Posts;
   }
 
   @override
-  void update(void Function(PostsResultBuilder) updates) {
+  void update(void Function(PostsBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$PostsResult build() {
-    _$PostsResult _$result;
+  _$Posts build() {
+    _$Posts _$result;
     try {
       _$result = _$v ??
-          new _$PostsResult._(
-              pageInfo: _pageInfo?.build(), items: _items?.build());
+          new _$Posts._(pageInfo: _pageInfo?.build(), items: _items?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -153,7 +152,7 @@ class PostsResultBuilder implements Builder<PostsResult, PostsResultBuilder> {
         _items?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'PostsResult', _$failedField, e.toString());
+            'Posts', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -15,12 +15,12 @@ part 'serializer.g.dart';
 
 @SerializersFor(const [
   Post,
+  Posts,
   Author,
   Content,
   PageInfo,
   Taxonomy,
   Thumbnail,
-  PostsResult,
   FeaturedImage,
   PostAdvCustomField,
 ])

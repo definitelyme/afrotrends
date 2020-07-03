@@ -10,17 +10,17 @@ class QueryBuilder {
   /// Limit result set to all items that have the specified term assigned in the taxonomy.
   final TaxonomyType taxonomy;
 
-  /// Limit response to posts published before a given ISO8601 compliant date.
-  final DateTime before;
-
-  /// Limit response to posts published after a given ISO8601 compliant date.
-  final DateTime after;
-
   /// Sort collection by object attribute.
   final Order orderBy;
 
   /// Order sort attribute ascending or descending.
   final SortBy sortBy;
+
+  /// Limit response to posts published before a given ISO8601 compliant date.
+  final DateTime before;
+
+  /// Limit response to posts published after a given ISO8601 compliant date.
+  final DateTime after;
 
   /// Maximum number of items to be returned in result set.
   final int perPage;
@@ -32,15 +32,15 @@ class QueryBuilder {
   final int page;
 
   /// Instantiate a QueryBuilder
-  const QueryBuilder({this.taxonomy, this.before, this.after, this.orderBy, this.sortBy, this.perPage = 4, this.offset, this.page = 1});
+  const QueryBuilder({this.taxonomy, this.orderBy, this.sortBy, this.before, this.after, this.perPage = 5, this.offset, this.page = 1});
 
   /// Copy the QueryBuilder class with some modifications.
   QueryBuilder copyWith({
     TaxonomyType taxonomy,
-    DateTime before,
-    DateTime after,
     Order orderBy,
     SortBy sortBy,
+    DateTime before,
+    DateTime after,
     int perPage = 4,
     int offset,
     int page = 1,
@@ -67,10 +67,10 @@ class QueryBuilder {
     }
 
     writeNotNull(taxonomy?.key, taxonomy?.id);
-    writeNotNull(Limit.before.name, before?.toIso8601String());
-    writeNotNull(Limit.after.name, after?.toIso8601String());
     writeNotNull(Order.key, orderBy);
     writeNotNull(SortBy.key, sortBy);
+    writeNotNull(Limit.before.name, before?.toIso8601String());
+    writeNotNull(Limit.after.name, after?.toIso8601String());
     writeNotNull('per_page', this?.perPage);
     writeNotNull("offset", this?.offset);
     writeNotNull('page', this?.page);

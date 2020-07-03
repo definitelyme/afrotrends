@@ -22,13 +22,13 @@ class _$PageInfoSerializer implements StructuredSerializer<PageInfo> {
       result
         ..add('total')
         ..add(serializers.serialize(object.total,
-            specifiedType: const FullType(int)));
+            specifiedType: const FullType(String)));
     }
     if (object.totalPages != null) {
       result
         ..add('total_pages')
         ..add(serializers.serialize(object.totalPages,
-            specifiedType: const FullType(int)));
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -46,11 +46,11 @@ class _$PageInfoSerializer implements StructuredSerializer<PageInfo> {
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(String)) as String;
           break;
         case 'total_pages':
           result.totalPages = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -61,9 +61,9 @@ class _$PageInfoSerializer implements StructuredSerializer<PageInfo> {
 
 class _$PageInfo extends PageInfo {
   @override
-  final int total;
+  final String total;
   @override
-  final int totalPages;
+  final String totalPages;
 
   factory _$PageInfo([void Function(PageInfoBuilder) updates]) =>
       (new PageInfoBuilder()..update(updates)).build();
@@ -102,13 +102,13 @@ class _$PageInfo extends PageInfo {
 class PageInfoBuilder implements Builder<PageInfo, PageInfoBuilder> {
   _$PageInfo _$v;
 
-  int _total;
-  int get total => _$this._total;
-  set total(int total) => _$this._total = total;
+  String _total;
+  String get total => _$this._total;
+  set total(String total) => _$this._total = total;
 
-  int _totalPages;
-  int get totalPages => _$this._totalPages;
-  set totalPages(int totalPages) => _$this._totalPages = totalPages;
+  String _totalPages;
+  String get totalPages => _$this._totalPages;
+  set totalPages(String totalPages) => _$this._totalPages = totalPages;
 
   PageInfoBuilder();
 

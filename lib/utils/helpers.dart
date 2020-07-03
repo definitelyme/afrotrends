@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+final today = DateTime.now();
 const IMAGES_FOLDER = "assets/images";
 const DEV_IMAGES_FOLDER = "$IMAGES_FOLDER/dev";
 const CATEGORIES_IMAGES_FOLDER = "$DEV_IMAGES_FOLDER/categories";
@@ -24,3 +25,9 @@ ScrollPhysics defaultScrollPhysics({ScrollPhysics parent}) => BouncingScrollPhys
 ScrollPhysics defaultHorizontalScrollPhysics({ScrollPhysics parent}) => BouncingScrollPhysics(parent: parent);
 
 double defaultCardRadius() => 16.0;
+
+mixin MkHelpers {
+  static final latestPostsPerPage = 4;
+
+  static DateTime getDate(DateTime d) => DateTime(d.year, d.month, d.day, d.hour, d.minute, d.second);
+}

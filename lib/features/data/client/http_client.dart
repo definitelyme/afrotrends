@@ -8,27 +8,27 @@ class HttpClient implements ApiClient<http.Response> {
   HttpClient(this.client);
 
   @override
-  Future<http.Response> get(String path, {QueryBuilder query}) {
+  Future<http.Response> get<T>(String path, {QueryBuilder query}) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<http.Response> post(String path, {dynamic data, QueryBuilder query}) {
+  Future<http.Response> post<T>(String path, {dynamic data, QueryBuilder query}) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<http.Response> put(String path, {dynamic data, QueryBuilder query}) {
+  Future<http.Response> put<T>(String path, {dynamic data, QueryBuilder query}) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<http.Response> patch(String path, {dynamic data, QueryBuilder query}) {
+  Future<http.Response> patch<T>(String path, {dynamic data, QueryBuilder query}) async {
     throw UnimplementedError();
   }
 
   @override
-  Future<http.Response> delete(String path, {dynamic data, QueryBuilder query}) {
+  Future<http.Response> delete<T>(String path, {dynamic data, QueryBuilder query}) async {
     throw UnimplementedError();
   }
 }

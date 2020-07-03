@@ -17,14 +17,14 @@ class MockResponse extends Mock implements Response {}
 
 void main() {
   MockApiClient mockApiClient;
-  MockResponse mockResponse;
+  Response mockResponse;
   SimpleRepo repo;
   Logger logger;
 
   setUp(() {
     mockApiClient = MockApiClient();
-    mockResponse = MockResponse();
-    repo = SimpleRepo(mockApiClient);
+    mockResponse = Response();
+    repo = SimpleRepo();
     logger = Logger(printer: PrettyPrinter(printTime: true));
   });
 
@@ -34,7 +34,7 @@ void main() {
     var nullSource = fixture("post/null-post.json");
     when(mockApiClient.get(any)).thenAnswer((_) async => Response(data: jsonDecode(listSource), statusCode: 200));
 
-    final posts = PostsResult.fromMap(jsonDecode(listSource));
+    final posts = Posts.fromMap(jsonDecode(listSource));
     print("Total => ${posts.pageInfo.total}");
 //    posts.items.forEach((post) {
 //      print("Title => ${post.title.rendered}");
