@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:afrotrends/features/data/remote/models/author/exports.dart';
 import 'package:afrotrends/features/data/remote/models/media/featured_image.dart';
+import 'package:afrotrends/features/data/remote/models/raw.dart';
 import 'package:afrotrends/features/data/remote/models/taxonomy/taxonomy.dart';
 import 'package:afrotrends/features/data/serializers/serializer.dart';
 import 'package:built_collection/built_collection.dart';
@@ -16,12 +17,15 @@ abstract class PostAdvCustomField implements Built<PostAdvCustomField, PostAdvCu
   @nullable
   @BuiltValueField(wireName: "_categoriees")
   BuiltList<Taxonomy> get categories;
+
   @nullable
   @BuiltValueField(wireName: "_tags")
   BuiltList<Taxonomy> get tags;
+
   @nullable
   @BuiltValueField(wireName: "user")
   Author get user;
+
   @nullable
   @BuiltValueField(wireName: "_featured_image")
   BuiltList<FeaturedImage> get featuredImage;
@@ -31,8 +35,8 @@ abstract class PostAdvCustomField implements Built<PostAdvCustomField, PostAdvCu
   static void _initializeBuilder(PostAdvCustomFieldBuilder builder) => builder
     ..categories = ListBuilder<Taxonomy>()
     ..tags = ListBuilder<Taxonomy>()
-    ..user = AuthorBuilder()
-    ..featuredImage = ListBuilder<FeaturedImage>();
+    ..user = Author.fromMap(jsonDecode(DEFAULT_AUTHOR)).toBuilder()
+    ..featuredImage = FeaturedImage.fromDynamicList(jsonDecode(DEFAULT_FEATURED_IMAGE)).toBuilder();
 
   factory PostAdvCustomField([updates(PostAdvCustomFieldBuilder b)]) = _$PostAdvCustomField;
 

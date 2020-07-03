@@ -13,7 +13,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(PageInfo.serializer)
       ..add(Post.serializer)
       ..add(PostAdvCustomField.serializer)
-      ..add(PostsResult.serializer)
+      ..add(Posts.serializer)
       ..add(Taxonomy.serializer)
       ..add(Thumbnail.serializer)
       ..addBuilderFactory(

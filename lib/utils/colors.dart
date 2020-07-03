@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AtColors{
+class AtColors {
   AtColors._();
 
   Color hexToColor(String hex) => Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
@@ -63,16 +63,16 @@ class AtColors{
   static const MaterialColor accentColor = const MaterialColor(
     _accentPrivate,
     const <int, Color>{
-      50: const Color(0xFFee91a2),
-      100: const Color(0xFFea7b8f),
-      200: const Color(0xFFe7657c),
-      300: const Color(0xFFe34f6a),
-      400: const Color(0xFFe03857),
+      50: const Color(0xFFfeb19a),
+      100: const Color(0xFFfe9e80),
+      200: const Color(0xFFfe8a67),
+      300: const Color(0xFFfe774d),
+      400: const Color(0xFFfe6334),
       500: const Color(_accentPrivate),
-      600: const Color(0xFFdd2245),
-      700: const Color(0xFFc71f3e),
-      800: const Color(0xFFb01c37),
-      900: const Color(0xFF9a1830),
+      600: const Color(0xFFfe501b),
+      700: const Color(0xFFfe3c01),
+      800: const Color(0xFFe43601),
+      900: const Color(0xFFcb3001),
     },
   );
 

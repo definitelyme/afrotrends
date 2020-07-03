@@ -17,6 +17,7 @@ dependencies:
   # An http middleware for HTTP authentication (Basic/Digest).
   http_auth: ^0.2.9
   dio: ^3.0.9
+  dio_http_cache: any
 #  dio_retry: ^0.1.9-beta
   retry: ^3.0.0+1
   # Navigate without context,
@@ -28,11 +29,12 @@ dependencies:
   flutter_bloc: any
   # A set of most common BLoC use
   # cases build on top flutter_bloc library.
-  flutter_bloc_patterns: any
+#  flutter_bloc_patterns: any
   # Functional Programming
   dartz: any
   # Check Internet connectivity
   data_connection_checker: any
+#  connectivity: any
   # Model equality
   equatable: any
   # For regular Unions
@@ -61,18 +63,18 @@ dependencies:
   flutter_local_notifications: any
   # Package to check for and ask for Notification Permissions on iOS and Android.
   notification_permissions: any
-  # A flutter library to show images from the internet and keep them in the cache directory.
-  cached_network_image: any
   # Flutter widget that automatically resizes text to fit perfectly within its bounds.
   auto_size_text: any
-  sqlcool: any
+#  sqlcool: any
   # A library useful for creating fuzzy timestamps. (e.g. "5 minutes ago")
   timeago: any
 #  flutter_keyboard_visibility: ^3.2.0
 #  local_auth: ^0.6.2+3
 
 
-#dependency_overrides:
+dependency_overrides:
+  # A flutter library to show images from the internet and keep them in the cache directory.
+  cached_network_image: '2.0.0-rc'
 
 dev_dependencies:
   flutter_driver:
