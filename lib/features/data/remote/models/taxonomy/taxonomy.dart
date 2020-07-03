@@ -13,14 +13,21 @@ abstract class Taxonomy implements Built<Taxonomy, TaxonomyBuilder> {
   @nullable
   @BuiltValueField(wireName: "term_id")
   int get id;
+
   @nullable
   @BuiltValueField(wireName: "name")
   String get name;
+
   @nullable
   @BuiltValueField(wireName: "slug")
   String get slug;
 
   Taxonomy._();
+
+  static void _initializeBuilder(TaxonomyBuilder builder) => builder
+    ..id = -1
+    ..name = null
+    ..slug = null;
 
   factory Taxonomy([updates(TaxonomyBuilder b)]) = _$Taxonomy;
 
