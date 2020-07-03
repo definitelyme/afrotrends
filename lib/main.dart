@@ -1,9 +1,10 @@
-import 'package:afrotrends/core/service_container/locator.dart';
+import 'package:afrotrends/manager/service_provider/provider.dart';
 import 'package:afrotrends/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 void main() async {
-  await serviceLocator(Environment.prod);
+  WidgetsFlutterBinding.ensureInitialized();
+  serviceProvider(Environment.dev);
   runApp(MyApp());
 }

@@ -1,0 +1,119 @@
+{
+  "id": null,
+  "date": null,
+  "date_gmt": null,
+  "guid": {
+    "rendered": null
+  },
+  "modified": null,
+  "modified_gmt": null,
+  "slug": null,
+  "status": null,
+  "type": null,
+  "link": null,
+  "title": {
+    "rendered": null
+  },
+  "content": {
+    "rendered": null,
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": null,
+    "protected": false
+  },
+  "author": null,
+  "featured_media": null,
+  "comment_status": null,
+  "ping_status": null,
+  "sticky": false,
+  "template": "",
+  "format": null,
+  "meta": {
+    "amp_status": ""
+  },
+  "categories": [],
+  "tags": [],
+  "_categories": false,
+  "_author": false,
+  "_image": false,
+  "_tags": [],
+  "read": true,
+  "acf": {
+    "_categoriees": [],
+    "_featured_image": [],
+    "user": null,
+    "_tags": []
+  },
+  "_links": {
+    "self": [
+      {
+        "href": null
+      }
+    ],
+    "collection": [
+      {
+        "href": null
+      }
+    ],
+    "about": [
+      {
+        "href": null
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": null
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": null
+      }
+    ],
+    "version-history": [
+      {
+        "count": null,
+        "href": null
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": null,
+        "href": null
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": null
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": null
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": null,
+        "embeddable": true,
+        "href": null
+      },
+      {
+        "taxonomy": null,
+        "embeddable": true,
+        "href": null
+      }
+    ],
+    "curies": [
+      {
+        "name": null,
+        "href": null,
+        "templated": true
+      }
+    ]
+  }
+}
