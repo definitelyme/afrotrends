@@ -29,7 +29,7 @@ abstract class DioClientException implements ApiClientException<DioError>, _$Dio
       );
 
   factory DioClientException.noNextPage({
-    API_ERROR_CODE code = API_ERROR_CODE.NO_MORE_POSTS,
+    API_ERROR_CODE code = API_ERROR_CODE.NO_MORE_ITEMS,
     DioErrorType type = DioErrorType.CONNECT_TIMEOUT,
     String message,
   }) =>

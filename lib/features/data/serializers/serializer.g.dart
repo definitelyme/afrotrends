@@ -14,11 +14,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Post.serializer)
       ..add(PostAdvCustomField.serializer)
       ..add(Posts.serializer)
+      ..add(Taxonomies.serializer)
       ..add(Taxonomy.serializer)
       ..add(Thumbnail.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Post)]),
           () => new ListBuilder<Post>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Taxonomy)]),
+          () => new ListBuilder<Taxonomy>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Taxonomy)]),
           () => new ListBuilder<Taxonomy>())

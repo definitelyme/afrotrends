@@ -30,6 +30,12 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
+    if (object.count != null) {
+      result
+        ..add('count')
+        ..add(serializers.serialize(object.count,
+            specifiedType: const FullType(int)));
+    }
     if (object.slug != null) {
       result
         ..add('slug')
@@ -58,6 +64,10 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'count':
+          result.count = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
         case 'slug':
           result.slug = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -75,12 +85,14 @@ class _$Taxonomy extends Taxonomy {
   @override
   final String name;
   @override
+  final int count;
+  @override
   final String slug;
 
   factory _$Taxonomy([void Function(TaxonomyBuilder) updates]) =>
       (new TaxonomyBuilder()..update(updates)).build();
 
-  _$Taxonomy._({this.id, this.name, this.slug}) : super._();
+  _$Taxonomy._({this.id, this.name, this.count, this.slug}) : super._();
 
   @override
   Taxonomy rebuild(void Function(TaxonomyBuilder) updates) =>
@@ -95,12 +107,14 @@ class _$Taxonomy extends Taxonomy {
     return other is Taxonomy &&
         id == other.id &&
         name == other.name &&
+        count == other.count &&
         slug == other.slug;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, id.hashCode), name.hashCode), slug.hashCode));
+    return $jf($jc($jc($jc($jc(0, id.hashCode), name.hashCode), count.hashCode),
+        slug.hashCode));
   }
 
   @override
@@ -108,6 +122,7 @@ class _$Taxonomy extends Taxonomy {
     return (newBuiltValueToStringHelper('Taxonomy')
           ..add('id', id)
           ..add('name', name)
+          ..add('count', count)
           ..add('slug', slug))
         .toString();
   }
@@ -124,6 +139,10 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
+  int _count;
+  int get count => _$this._count;
+  set count(int count) => _$this._count = count;
+
   String _slug;
   String get slug => _$this._slug;
   set slug(String slug) => _$this._slug = slug;
@@ -136,6 +155,7 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
     if (_$v != null) {
       _id = _$v.id;
       _name = _$v.name;
+      _count = _$v.count;
       _slug = _$v.slug;
       _$v = null;
     }
@@ -157,7 +177,8 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
 
   @override
   _$Taxonomy build() {
-    final _$result = _$v ?? new _$Taxonomy._(id: id, name: name, slug: slug);
+    final _$result =
+        _$v ?? new _$Taxonomy._(id: id, name: name, count: count, slug: slug);
     replace(_$result);
     return _$result;
   }

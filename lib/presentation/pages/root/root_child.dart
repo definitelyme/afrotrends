@@ -19,7 +19,20 @@ class RootChild extends StatelessWidget {
         after: MkHelpers.getDate(today.subtract(Duration(days: 7))),
       ));
 
-    BlocProvider.of<HomeBloc>(context).add(HomeEvent.fetchCategories());
+    BlocProvider.of<HomeBloc>(context)
+      ..dispatchCategoriesEvent(QueryBuilder(
+        perPage: MkHelpers.categoriesPerPage,
+        orderBy: CategoryOrder.count,
+        sortBy: SortBy.desc,
+      ));
+
+    BlocProvider.of<HomeBloc>(context)
+      ..dispatchLastMonthPostsEvent(QueryBuilder(
+        perPage: MkHelpers.lastMonthPostsPerPage,
+        orderBy: PostOrder.date,
+        before: MkHelpers.getDate(today.subtract(Duration(days: 7))),
+        after: MkHelpers.getDate(today.subtract(Duration(days: 30))),
+      ));
 
     return HomeScreen();
   }

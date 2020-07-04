@@ -25,6 +25,7 @@ class PostRepository {
   }
 
   Future<Posts> fetchOlderPosts({QueryBuilder query}) async {
-    //
+    final lastMonthPosts = await _postDataSource.fetchOlderPosts(query: query);
+    return lastMonthPosts;
   }
 }

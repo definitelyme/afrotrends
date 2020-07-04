@@ -25,14 +25,14 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
     super.build(context);
     bool _handleOnScrollNotification(ScrollNotification notification) {
       if (notification is ScrollEndNotification && _scrollController.position.pixels == _scrollController.position.maxScrollExtent)
-        _bloc.add(HomeEvent.fetchLatestPosts(
-            queryBuilder: QueryBuilder(
-          perPage: MkHelpers.latestPostsPerPage,
-          page: ++_page,
-          orderBy: PostOrder.date,
-          before: today,
-          after: MkHelpers.getDate(today.subtract(Duration(days: 7))),
-        )));
+        _bloc
+          ..dispatchLatestPostEvent(QueryBuilder(
+            perPage: MkHelpers.latestPostsPerPage,
+            page: ++_page,
+            orderBy: PostOrder.date,
+            before: today,
+            after: MkHelpers.getDate(today.subtract(Duration(days: 7))),
+          ));
       return false;
     }
 
@@ -46,10 +46,7 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
 
     return Container(
       height: Get.height * 0.24,
-      child: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {
-          print("Error => ${context.bloc<HomeBloc>()?.state?.failure?.message}");
-        },
+      child: BlocBuilder<HomeBloc, HomeState>(
         builder: (_, state) {
           if (state.latestPosts == null)
             return ListView.builder(
@@ -79,9 +76,12 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
                 if (index == _calculateListItemCount())
                   return Visibility(
                     visible: !isEndOfPosts,
-                    child: Center(child: MkCircularProgressIndicator()),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 12.0),
+                      child: Center(child: MkCircularProgressIndicator()),
+                    ),
                   );
-                return _latestNewsBuilder(state.latestPosts.elementAt(index));
+                return _latestNewsBuilder(_bloc.state.latestPosts.elementAt(index));
               },
             ),
           );
@@ -101,7 +101,6 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
         children: [
           CachedNetworkImage(
             imageUrl: post?.customField?.featuredImage?.first?.sourceUrl,
-//            imageUrl: "http://via.placeholder.com/200x150",
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(defaultCardRadius()),
@@ -109,9 +108,7 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
               ),
             ),
             placeholder: (context, url) => Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(AtColors.accentColor.shade300),
-              ),
+              child: CupertinoActivityIndicator(),
             ),
             errorWidget: (context, url, error) => Icon(Icons.error, color: AtColors.accentColor),
           ),

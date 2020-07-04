@@ -20,12 +20,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-/*
-FlatButton(
-              child: Text("Get Posts"),
-              onPressed: () async {
-                await SimpleRepo().anotherRequest();
-              },
-            )
-*/

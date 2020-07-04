@@ -134,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0-rc"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
   charcode:
     dependency: transitive
     description:
@@ -240,12 +247,19 @@ packages:
     source: hosted
     version: "0.3.4"
   dio:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.9"
+  dio_cache:
+    dependency: "direct main"
+    description:
+      name: dio_cache
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0-beta"
   dio_http_cache:
     dependency: "direct main"
     description:
@@ -829,6 +843,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slugify:
+    dependency: "direct main"
+    description:
+      name: slugify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   source_gen:
     dependency: transitive
     description:

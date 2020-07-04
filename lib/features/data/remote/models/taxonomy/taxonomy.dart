@@ -19,6 +19,9 @@ abstract class Taxonomy implements Built<Taxonomy, TaxonomyBuilder> {
   String get name;
 
   @nullable
+  int get count;
+
+  @nullable
   @BuiltValueField(wireName: "slug")
   String get slug;
 

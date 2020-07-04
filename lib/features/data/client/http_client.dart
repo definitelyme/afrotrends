@@ -8,7 +8,7 @@ class HttpClient implements ApiClient<http.Response> {
   HttpClient(this.client);
 
   @override
-  Future<http.Response> get<T>(String path, {QueryBuilder query}) async {
+  Future<http.Response> get<T>(String path, {QueryBuilder query, Object options}) async {
     throw UnimplementedError();
   }
 

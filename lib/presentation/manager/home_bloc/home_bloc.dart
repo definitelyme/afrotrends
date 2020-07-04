@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:afrotrends/features/data/client/dio/dio_client_exception.dart';
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
+import 'package:afrotrends/features/data/remote/models/taxonomy/exports_taxonomy.dart';
+import 'package:afrotrends/features/data/repositories/category_repository.dart';
 import 'package:afrotrends/features/data/repositories/exports.dart';
 import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/features/domain/entities/failure.dart';
@@ -10,6 +12,7 @@ import 'package:bloc/bloc.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -24,18 +27,28 @@ typedef RepoCaller<T> = Future<T> Function({QueryBuilder query});
 @Injectable()
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final PostRepository _postRepository;
+  final CategoryRepository _categoryRepository;
   final RetryOptions _r;
 
   void dispatchLatestPostEvent(QueryBuilder query) {
     add(HomeEvent.fetchLatestPosts(queryBuilder: query));
   }
 
-  void dispatchTimeoutException({Failure failure}) {
-    add(HomeEvent.sendTimeoutException(failure: failure));
+  void dispatchCategoriesEvent(QueryBuilder query) {
+    add(HomeEvent.fetchCategories(queryBuilder: query));
   }
 
-  HomeBloc(PostRepository postRepository, RetryOptions retryOptions)
+  void dispatchLastMonthPostsEvent(QueryBuilder query) {
+    add(HomeEvent.fetchLastMonthPosts(queryBuilder: query));
+  }
+
+  void _dispatchTimeoutException({Failure failure, HomeEvent ev}) {
+    add(HomeEvent.sendTimeoutException(failure: failure, sink: ev));
+  }
+
+  HomeBloc(PostRepository postRepository, RetryOptions retryOptions, this._categoryRepository)
       : assert(postRepository != null),
+        assert(_categoryRepository != null),
         _postRepository = postRepository,
         _r = retryOptions,
         super(HomeState.initial());
@@ -44,16 +57,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> mapEventToState(
     HomeEvent event,
   ) async* {
+    yield state.copyWith(failure: null);
+
     yield* event.map(
       fetchLatestPosts: (e) async* {
         yield* mapLatestPosts(e);
       },
       fetchCategories: (e) async* {
-        print("Fetching categories");
         yield* mapCategories(e);
       },
+      fetchLastMonthPosts: (e) async* {
+        yield* mapLastMonthPosts(e);
+      },
       sendTimeoutException: (e) async* {
-        yield state.copyWith(failure: (e.failure as ApiClientException));
+        yield state.copyWith(failure: (e.failure as ApiClientException), lastSink: e.sink);
       },
     );
   }
@@ -68,51 +85,42 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             : state.latestPosts ?? posts?.items,
       );
     } on DioClientException catch (e) {
-      yield state.copyWith(endOfLatestPosts: e.code == API_ERROR_CODE.NO_MORE_POSTS);
+      yield state.copyWith(endOfLatestPosts: e.code == API_ERROR_CODE.NO_MORE_ITEMS);
     } on DioError catch (e) {
-      if ((e is DioError &&
-              (e.type == DioErrorType.CONNECT_TIMEOUT ||
-                  e.type == DioErrorType.SEND_TIMEOUT ||
-                  e.type == DioErrorType.RECEIVE_TIMEOUT ||
-                  e.type == DioErrorType.DEFAULT)) ||
-          e is SocketException ||
-          e is TimeoutException) {
-        dispatchTimeoutException(failure: DioClientException.unStableInternet());
-      }
+      notifyNoInternet(e, lastSink: HomeEvent.fetchLatestPosts(queryBuilder: query));
     }
-//    on DioError catch (e) {
-//      yield* handleTimeoutException<Posts>(_postRepository.fetchLatestPosts, args: query).asyncMap((results) {
-//        return results.then((posts) {
-//          return state.copyWith(
-//            latestPosts: ((state.latestPosts != null) && state.latestPosts.last != posts?.items?.last)
-//                ? state.latestPosts + posts?.items
-//                : state.latestPosts ?? posts?.items,
-//          );
-//        });
-//      });
-//
-//      handleTimeoutException<Posts>(_postRepository.fetchLatestPosts, args: query).transform(
-//        StreamTransformer.fromHandlers(
-//          handleData: (Future<Posts> results, EventSink<HomeState> sink) async {
-//            results.then((posts) {
-//              print("From streamTransformer => ${posts.items.length}");
-//              sink.add(state.copyWith(
-//                latestPosts: ((state.latestPosts != null) && state.latestPosts.last != posts?.items?.last)
-//                    ? state.latestPosts + posts?.items
-//                    : state.latestPosts ?? posts?.items,
-//              ));
-//              sink.close();
-//            });
-//          },
-//          handleDone: (EventSink<HomeState> sink) async {},
-//          handleError: (Object error, StackTrace trace, EventSink<HomeState> state) {},
-//        ),
-//      );
-//    }
   }
 
   Stream<HomeState> mapCategories(_FetchCategories e) async* {
-    //
+    QueryBuilder query = e.queryBuilder;
+    try {
+      final categories = await _categoryRepository.fetchCategoriesForHome(query: query);
+      yield state.copyWith(
+        categories: ((state.categories != null) && state.categories.last != categories?.items?.last)
+            ? state.categories + categories?.items
+            : state.categories ?? categories?.items,
+      );
+    } on DioClientException catch (e) {
+      yield state.copyWith(endOfCategories: e.code == API_ERROR_CODE.NO_MORE_ITEMS);
+    } on DioError catch (e) {
+      notifyNoInternet(e, lastSink: HomeEvent.fetchCategories(queryBuilder: query));
+    }
+  }
+
+  Stream<HomeState> mapLastMonthPosts(_FetchLastMonth e) async* {
+    QueryBuilder query = e.queryBuilder;
+    try {
+      final lastMonthPosts = await _postRepository.fetchOlderPosts(query: query);
+      yield state.copyWith(
+        lastMonthPosts: ((state.lastMonthPosts != null) && state.lastMonthPosts.last != lastMonthPosts?.items?.last)
+            ? state.lastMonthPosts + lastMonthPosts?.items
+            : state.lastMonthPosts ?? lastMonthPosts?.items,
+      );
+    } on DioClientException catch (e) {
+      yield state.copyWith(endOfLastMonthPosts: e.code == API_ERROR_CODE.NO_MORE_ITEMS);
+    } on DioError catch (e) {
+      notifyNoInternet(e, lastSink: HomeEvent.fetchLastMonthPosts(queryBuilder: query));
+    }
   }
 
   Stream<Future<T>> handleTimeoutException<T>(RepoCaller call, {QueryBuilder args = const QueryBuilder()}) async* {
@@ -127,8 +135,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           e is SocketException ||
           e is TimeoutException,
       onRetry: (e) {
-        dispatchTimeoutException(failure: DioClientException.unStableInternet());
+        _dispatchTimeoutException(failure: DioClientException.unStableInternet());
       },
     );
+  }
+
+  void notifyNoInternet(DioError e, {HomeEvent lastSink}) {
+    if ((e is DioError &&
+            (e.type == DioErrorType.CONNECT_TIMEOUT ||
+                e.type == DioErrorType.SEND_TIMEOUT ||
+                e.type == DioErrorType.RECEIVE_TIMEOUT ||
+                e.type == DioErrorType.DEFAULT)) ||
+        e is SocketException ||
+        e is TimeoutException) {
+      _dispatchTimeoutException(failure: DioClientException.unStableInternet(), ev: lastSink);
+    }
   }
 }
