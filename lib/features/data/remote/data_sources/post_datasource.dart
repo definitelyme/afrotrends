@@ -33,6 +33,21 @@ class PostDataSource {
     }
   }
 
+  Future<Post> fetchSingleton(String id, {QueryBuilder query}) async {
+    try {
+      final response = await _client.get("/posts/$id",
+          query: query,
+          options: buildCacheOptions(
+            Duration(days: 7),
+            maxStale: Duration(days: 10),
+            forceRefresh: true,
+          ));
+      return Post.fromMap(response.data);
+    } on DioError catch (e) {
+      rethrow;
+    }
+  }
+
   Future<Posts> fetchOlderPosts({QueryBuilder query}) async {
     try {
       final response = await _client.get("/posts",

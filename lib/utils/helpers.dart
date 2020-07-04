@@ -1,3 +1,5 @@
+import 'package:afrotrends/features/data/remote/models/post/exports.dart';
+import 'package:afrotrends/presentation/pages/detail/post_detail_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +12,12 @@ const CATEGORIES_IMAGES_FOLDER = "$PROD_IMAGES_FOLDER/categories";
 
 EdgeInsetsGeometry defaultEdgeSpacing(BuildContext context, {double left, double top, double right, double bottom}) =>
     EdgeInsets.fromLTRB(left ?? deviceLeftMargin(context), top ?? 0.0, right ?? deviceLeftMargin(context), bottom ?? 0.0);
+
+void navigateToPostDetail(String heroTag, Post post) => navigator.push(MaterialPageRoute(
+    builder: (context) => PostDetailScreen(
+          heroTag: heroTag,
+          post: post,
+        )));
 
 double deviceMargin(BuildContext context) => Get.width * 0.04;
 
@@ -31,6 +39,9 @@ mixin MkHelpers {
   static final latestPostsPerPage = 3;
   static final categoriesPerPage = 3;
   static final lastMonthPostsPerPage = 3;
+  static final blackExPerPage = 8;
+  static final entertainmentsPerPage = 5;
+  static final trendsPerPage = 5;
 
   static DateTime getDate(DateTime d) => DateTime(d.year, d.month, d.day, d.hour, d.minute, d.second);
 }

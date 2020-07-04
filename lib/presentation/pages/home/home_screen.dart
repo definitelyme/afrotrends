@@ -1,4 +1,3 @@
-import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
 import 'package:afrotrends/presentation/widgets/home/beauty_widget.dart';
 import 'package:afrotrends/presentation/widgets/home/black-ex_widget.dart';
@@ -24,12 +23,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     BlackExcellenceWidget.name,
     EntertainmentWidget.name,
     ViralTrendsWidget.name,
-    BeautyWidget.name,
+//    BeautyWidget.name,
   ];
-  HomeBloc _bloc;
-  ScrollController _controller;
   TabController _tabController;
-  int _lastMonthPostsPage = 1;
 
   @override
   void initState() {
@@ -38,30 +34,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _bloc = BlocProvider.of<HomeBloc>(context);
-    _controller = _bloc.state.scrollController;
-  }
-
-  @override
   Widget build(BuildContext context) {
     _tabController.addListener(() {
 //      BlocProvider.of<HomeBloc>(context).add(HomeEvent.fetchLatestPosts(queryBuilder: QueryBuilder(perPage: 10)));
     });
-
-    bool _handleOnScrollNotification(ScrollNotification notification) {
-      if (notification is ScrollEndNotification && _controller.position.pixels == _controller.position.maxScrollExtent)
-        _bloc
-          ..dispatchLastMonthPostsEvent(QueryBuilder(
-            page: ++_lastMonthPostsPage,
-            perPage: MkHelpers.lastMonthPostsPerPage,
-            orderBy: PostOrder.date,
-            before: MkHelpers.getDate(today.subtract(Duration(days: 7))),
-            after: MkHelpers.getDate(today.subtract(Duration(days: 30))),
-          ));
-      return true;
-    }
 
     return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
@@ -82,66 +58,66 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               duration: const Duration(seconds: 20),
               isDismissible: false,
               snackStyle: SnackStyle.FLOATING,
+              mainButton: FlatButton(
+                onPressed: () => _homeBloc.add(_homeBloc.state.lastSink),
+                child: Text("Try again"),
+              ),
               margin: EdgeInsets.all(Get.height * 0.01));
       },
       child: Scaffold(
-        body: NotificationListener<ScrollEndNotification>(
-          onNotification: _handleOnScrollNotification,
-          child: NestedScrollView(
-            scrollDirection: Axis.vertical,
-            controller: _controller,
-            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-              return <Widget>[
-                SliverAppBar(
-                  floating: true,
-                  forceElevated: innerBoxIsScrolled,
-                  elevation: 0.0,
-                  titleSpacing: deviceMargin(context),
-                  backgroundColor: Colors.transparent,
-                  automaticallyImplyLeading: true,
-                  title: CircleAvatar(
-                    backgroundImage: AssetImage("$IMAGES_FOLDER/icon.png"),
-                    backgroundColor: AtColors.accentColor,
-                  ),
-                  bottom: PreferredSize(
-                    preferredSize: Size(double.infinity, Get.height * 0.05),
-                    child: TabBar(
-                      controller: _tabController,
-                      labelColor: AtColors.accentColor.shade300,
-                      unselectedLabelColor: Colors.grey,
-                      isScrollable: true,
-                      indicatorColor: AtColors.accentColor.shade300,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      indicatorPadding: EdgeInsets.symmetric(horizontal: 10.0),
-                      tabs: _tabBarItems.map<Widget>(
-                        (item) {
-                          return Container(
-                            height: Get.height * 0.05,
-                            child: Tab(
-                              text: item,
-                            ),
-                          );
-                        },
-                      ).toList(),
-                      onTap: (index) {
-                        //
+        body: NestedScrollView(
+          scrollDirection: Axis.vertical,
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                floating: true,
+                forceElevated: innerBoxIsScrolled,
+                elevation: 0.0,
+                titleSpacing: deviceMargin(context),
+                backgroundColor: Colors.transparent,
+                automaticallyImplyLeading: true,
+                title: CircleAvatar(
+                  backgroundImage: AssetImage("$IMAGES_FOLDER/icon.png"),
+                  backgroundColor: AtColors.accentColor,
+                ),
+                bottom: PreferredSize(
+                  preferredSize: Size(double.infinity, Get.height * 0.05),
+                  child: TabBar(
+                    controller: _tabController,
+                    labelColor: AtColors.accentColor.shade300,
+                    unselectedLabelColor: Colors.grey,
+                    isScrollable: true,
+                    indicatorColor: AtColors.accentColor.shade300,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                    tabs: _tabBarItems.map<Widget>(
+                      (item) {
+                        return Container(
+                          height: Get.height * 0.05,
+                          child: Tab(
+                            text: item,
+                          ),
+                        );
                       },
-                    ),
+                    ).toList(),
+                    onTap: (index) {
+                      //
+                    },
                   ),
                 ),
-              ];
-            },
-            body: TabBarView(
-              controller: _tabController,
-              physics: defaultScrollPhysics(),
-              children: [
-                ForYouWidget(),
-                BlackExcellenceWidget(),
-                EntertainmentWidget(),
-                ViralTrendsWidget(),
-                BeautyWidget(),
-              ],
-            ),
+              ),
+            ];
+          },
+          body: TabBarView(
+            controller: _tabController,
+            physics: defaultScrollPhysics(),
+            children: [
+              ForYouWidget(),
+              BlackExcellenceWidget(),
+              EntertainmentWidget(),
+              ViralTrendsWidget(),
+//              BeautyWidget(),
+            ],
           ),
         ),
       ),

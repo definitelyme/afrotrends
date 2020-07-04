@@ -37,6 +37,37 @@ class _$HomeEventTearOff {
       sink: sink,
     );
   }
+
+  _FetchBlackExPosts fetchBlackExPosts({QueryBuilder queryBuilder}) {
+    return _FetchBlackExPosts(
+      queryBuilder: queryBuilder,
+    );
+  }
+
+  _FetchEntertainments fetchEntertainments({QueryBuilder queryBuilder}) {
+    return _FetchEntertainments(
+      queryBuilder: queryBuilder,
+    );
+  }
+
+  _FetchFeaturedPost fetchFeaturedPost(String id, {QueryBuilder queryBuilder}) {
+    return _FetchFeaturedPost(
+      id,
+      queryBuilder: queryBuilder,
+    );
+  }
+
+  _FetchOldTrends fetchOldTrends({QueryBuilder queryBuilder}) {
+    return _FetchOldTrends(
+      queryBuilder: queryBuilder,
+    );
+  }
+
+  _FetchBeautyPosts fetchBeautyPosts({QueryBuilder queryBuilder}) {
+    return _FetchBeautyPosts(
+      queryBuilder: queryBuilder,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -49,6 +80,11 @@ mixin _$HomeEvent {
     @required Result fetchCategories(QueryBuilder queryBuilder),
     @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -56,6 +92,11 @@ mixin _$HomeEvent {
     Result fetchCategories(QueryBuilder queryBuilder),
     Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -64,6 +105,11 @@ mixin _$HomeEvent {
     @required Result fetchCategories(_FetchCategories value),
     @required Result fetchLastMonthPosts(_FetchLastMonth value),
     @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -71,6 +117,11 @@ mixin _$HomeEvent {
     Result fetchCategories(_FetchCategories value),
     Result fetchLastMonthPosts(_FetchLastMonth value),
     Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
     @required Result orElse(),
   });
 }
@@ -162,11 +213,21 @@ class _$_FetchLatestPosts
     @required Result fetchCategories(QueryBuilder queryBuilder),
     @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchLatestPosts(queryBuilder);
   }
 
@@ -177,6 +238,11 @@ class _$_FetchLatestPosts
     Result fetchCategories(QueryBuilder queryBuilder),
     Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -193,11 +259,21 @@ class _$_FetchLatestPosts
     @required Result fetchCategories(_FetchCategories value),
     @required Result fetchLastMonthPosts(_FetchLastMonth value),
     @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchLatestPosts(this);
   }
 
@@ -208,6 +284,11 @@ class _$_FetchLatestPosts
     Result fetchCategories(_FetchCategories value),
     Result fetchLastMonthPosts(_FetchLastMonth value),
     Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -299,11 +380,21 @@ class _$_FetchCategories
     @required Result fetchCategories(QueryBuilder queryBuilder),
     @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchCategories(queryBuilder);
   }
 
@@ -314,6 +405,11 @@ class _$_FetchCategories
     Result fetchCategories(QueryBuilder queryBuilder),
     Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -330,11 +426,21 @@ class _$_FetchCategories
     @required Result fetchCategories(_FetchCategories value),
     @required Result fetchLastMonthPosts(_FetchLastMonth value),
     @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchCategories(this);
   }
 
@@ -345,6 +451,11 @@ class _$_FetchCategories
     Result fetchCategories(_FetchCategories value),
     Result fetchLastMonthPosts(_FetchLastMonth value),
     Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -436,11 +547,21 @@ class _$_FetchLastMonth
     @required Result fetchCategories(QueryBuilder queryBuilder),
     @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchLastMonthPosts(queryBuilder);
   }
 
@@ -451,6 +572,11 @@ class _$_FetchLastMonth
     Result fetchCategories(QueryBuilder queryBuilder),
     Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -467,11 +593,21 @@ class _$_FetchLastMonth
     @required Result fetchCategories(_FetchCategories value),
     @required Result fetchLastMonthPosts(_FetchLastMonth value),
     @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return fetchLastMonthPosts(this);
   }
 
@@ -482,6 +618,11 @@ class _$_FetchLastMonth
     Result fetchCategories(_FetchCategories value),
     Result fetchLastMonthPosts(_FetchLastMonth value),
     Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -582,11 +723,21 @@ class _$_SendTimeoutException
     @required Result fetchCategories(QueryBuilder queryBuilder),
     @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return sendTimeoutException(failure, sink);
   }
 
@@ -597,6 +748,11 @@ class _$_SendTimeoutException
     Result fetchCategories(QueryBuilder queryBuilder),
     Result fetchLastMonthPosts(QueryBuilder queryBuilder),
     Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -613,11 +769,21 @@ class _$_SendTimeoutException
     @required Result fetchCategories(_FetchCategories value),
     @required Result fetchLastMonthPosts(_FetchLastMonth value),
     @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
   }) {
     assert(fetchLatestPosts != null);
     assert(fetchCategories != null);
     assert(fetchLastMonthPosts != null);
     assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
     return sendTimeoutException(this);
   }
 
@@ -628,6 +794,11 @@ class _$_SendTimeoutException
     Result fetchCategories(_FetchCategories value),
     Result fetchLastMonthPosts(_FetchLastMonth value),
     Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -647,11 +818,862 @@ abstract class _SendTimeoutException implements HomeEvent {
   _$SendTimeoutExceptionCopyWith<_SendTimeoutException> get copyWith;
 }
 
+abstract class _$FetchBlackExPostsCopyWith<$Res> {
+  factory _$FetchBlackExPostsCopyWith(
+          _FetchBlackExPosts value, $Res Function(_FetchBlackExPosts) then) =
+      __$FetchBlackExPostsCopyWithImpl<$Res>;
+  $Res call({QueryBuilder queryBuilder});
+}
+
+class __$FetchBlackExPostsCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$FetchBlackExPostsCopyWith<$Res> {
+  __$FetchBlackExPostsCopyWithImpl(
+      _FetchBlackExPosts _value, $Res Function(_FetchBlackExPosts) _then)
+      : super(_value, (v) => _then(v as _FetchBlackExPosts));
+
+  @override
+  _FetchBlackExPosts get _value => super._value as _FetchBlackExPosts;
+
+  @override
+  $Res call({
+    Object queryBuilder = freezed,
+  }) {
+    return _then(_FetchBlackExPosts(
+      queryBuilder: queryBuilder == freezed
+          ? _value.queryBuilder
+          : queryBuilder as QueryBuilder,
+    ));
+  }
+}
+
+class _$_FetchBlackExPosts
+    with DiagnosticableTreeMixin
+    implements _FetchBlackExPosts {
+  const _$_FetchBlackExPosts({this.queryBuilder});
+
+  @override
+  final QueryBuilder queryBuilder;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchBlackExPosts(queryBuilder: $queryBuilder)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchBlackExPosts'))
+      ..add(DiagnosticsProperty('queryBuilder', queryBuilder));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FetchBlackExPosts &&
+            (identical(other.queryBuilder, queryBuilder) ||
+                const DeepCollectionEquality()
+                    .equals(other.queryBuilder, queryBuilder)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryBuilder);
+
+  @override
+  _$FetchBlackExPostsCopyWith<_FetchBlackExPosts> get copyWith =>
+      __$FetchBlackExPostsCopyWithImpl<_FetchBlackExPosts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fetchLatestPosts(QueryBuilder queryBuilder),
+    @required Result fetchCategories(QueryBuilder queryBuilder),
+    @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchBlackExPosts(queryBuilder);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fetchLatestPosts(QueryBuilder queryBuilder),
+    Result fetchCategories(QueryBuilder queryBuilder),
+    Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchBlackExPosts != null) {
+      return fetchBlackExPosts(queryBuilder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fetchLatestPosts(_FetchLatestPosts value),
+    @required Result fetchCategories(_FetchCategories value),
+    @required Result fetchLastMonthPosts(_FetchLastMonth value),
+    @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchBlackExPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fetchLatestPosts(_FetchLatestPosts value),
+    Result fetchCategories(_FetchCategories value),
+    Result fetchLastMonthPosts(_FetchLastMonth value),
+    Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchBlackExPosts != null) {
+      return fetchBlackExPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchBlackExPosts implements HomeEvent {
+  const factory _FetchBlackExPosts({QueryBuilder queryBuilder}) =
+      _$_FetchBlackExPosts;
+
+  QueryBuilder get queryBuilder;
+  _$FetchBlackExPostsCopyWith<_FetchBlackExPosts> get copyWith;
+}
+
+abstract class _$FetchEntertainmentsCopyWith<$Res> {
+  factory _$FetchEntertainmentsCopyWith(_FetchEntertainments value,
+          $Res Function(_FetchEntertainments) then) =
+      __$FetchEntertainmentsCopyWithImpl<$Res>;
+  $Res call({QueryBuilder queryBuilder});
+}
+
+class __$FetchEntertainmentsCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$FetchEntertainmentsCopyWith<$Res> {
+  __$FetchEntertainmentsCopyWithImpl(
+      _FetchEntertainments _value, $Res Function(_FetchEntertainments) _then)
+      : super(_value, (v) => _then(v as _FetchEntertainments));
+
+  @override
+  _FetchEntertainments get _value => super._value as _FetchEntertainments;
+
+  @override
+  $Res call({
+    Object queryBuilder = freezed,
+  }) {
+    return _then(_FetchEntertainments(
+      queryBuilder: queryBuilder == freezed
+          ? _value.queryBuilder
+          : queryBuilder as QueryBuilder,
+    ));
+  }
+}
+
+class _$_FetchEntertainments
+    with DiagnosticableTreeMixin
+    implements _FetchEntertainments {
+  const _$_FetchEntertainments({this.queryBuilder});
+
+  @override
+  final QueryBuilder queryBuilder;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchEntertainments(queryBuilder: $queryBuilder)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchEntertainments'))
+      ..add(DiagnosticsProperty('queryBuilder', queryBuilder));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FetchEntertainments &&
+            (identical(other.queryBuilder, queryBuilder) ||
+                const DeepCollectionEquality()
+                    .equals(other.queryBuilder, queryBuilder)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryBuilder);
+
+  @override
+  _$FetchEntertainmentsCopyWith<_FetchEntertainments> get copyWith =>
+      __$FetchEntertainmentsCopyWithImpl<_FetchEntertainments>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fetchLatestPosts(QueryBuilder queryBuilder),
+    @required Result fetchCategories(QueryBuilder queryBuilder),
+    @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchEntertainments(queryBuilder);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fetchLatestPosts(QueryBuilder queryBuilder),
+    Result fetchCategories(QueryBuilder queryBuilder),
+    Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchEntertainments != null) {
+      return fetchEntertainments(queryBuilder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fetchLatestPosts(_FetchLatestPosts value),
+    @required Result fetchCategories(_FetchCategories value),
+    @required Result fetchLastMonthPosts(_FetchLastMonth value),
+    @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchEntertainments(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fetchLatestPosts(_FetchLatestPosts value),
+    Result fetchCategories(_FetchCategories value),
+    Result fetchLastMonthPosts(_FetchLastMonth value),
+    Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchEntertainments != null) {
+      return fetchEntertainments(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchEntertainments implements HomeEvent {
+  const factory _FetchEntertainments({QueryBuilder queryBuilder}) =
+      _$_FetchEntertainments;
+
+  QueryBuilder get queryBuilder;
+  _$FetchEntertainmentsCopyWith<_FetchEntertainments> get copyWith;
+}
+
+abstract class _$FetchFeaturedPostCopyWith<$Res> {
+  factory _$FetchFeaturedPostCopyWith(
+          _FetchFeaturedPost value, $Res Function(_FetchFeaturedPost) then) =
+      __$FetchFeaturedPostCopyWithImpl<$Res>;
+  $Res call({String id, QueryBuilder queryBuilder});
+}
+
+class __$FetchFeaturedPostCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$FetchFeaturedPostCopyWith<$Res> {
+  __$FetchFeaturedPostCopyWithImpl(
+      _FetchFeaturedPost _value, $Res Function(_FetchFeaturedPost) _then)
+      : super(_value, (v) => _then(v as _FetchFeaturedPost));
+
+  @override
+  _FetchFeaturedPost get _value => super._value as _FetchFeaturedPost;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object queryBuilder = freezed,
+  }) {
+    return _then(_FetchFeaturedPost(
+      id == freezed ? _value.id : id as String,
+      queryBuilder: queryBuilder == freezed
+          ? _value.queryBuilder
+          : queryBuilder as QueryBuilder,
+    ));
+  }
+}
+
+class _$_FetchFeaturedPost
+    with DiagnosticableTreeMixin
+    implements _FetchFeaturedPost {
+  const _$_FetchFeaturedPost(this.id, {this.queryBuilder}) : assert(id != null);
+
+  @override
+  final String id;
+  @override
+  final QueryBuilder queryBuilder;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchFeaturedPost(id: $id, queryBuilder: $queryBuilder)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchFeaturedPost'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('queryBuilder', queryBuilder));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FetchFeaturedPost &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.queryBuilder, queryBuilder) ||
+                const DeepCollectionEquality()
+                    .equals(other.queryBuilder, queryBuilder)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(queryBuilder);
+
+  @override
+  _$FetchFeaturedPostCopyWith<_FetchFeaturedPost> get copyWith =>
+      __$FetchFeaturedPostCopyWithImpl<_FetchFeaturedPost>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fetchLatestPosts(QueryBuilder queryBuilder),
+    @required Result fetchCategories(QueryBuilder queryBuilder),
+    @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchFeaturedPost(id, queryBuilder);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fetchLatestPosts(QueryBuilder queryBuilder),
+    Result fetchCategories(QueryBuilder queryBuilder),
+    Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchFeaturedPost != null) {
+      return fetchFeaturedPost(id, queryBuilder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fetchLatestPosts(_FetchLatestPosts value),
+    @required Result fetchCategories(_FetchCategories value),
+    @required Result fetchLastMonthPosts(_FetchLastMonth value),
+    @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchFeaturedPost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fetchLatestPosts(_FetchLatestPosts value),
+    Result fetchCategories(_FetchCategories value),
+    Result fetchLastMonthPosts(_FetchLastMonth value),
+    Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchFeaturedPost != null) {
+      return fetchFeaturedPost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchFeaturedPost implements HomeEvent {
+  const factory _FetchFeaturedPost(String id, {QueryBuilder queryBuilder}) =
+      _$_FetchFeaturedPost;
+
+  String get id;
+  QueryBuilder get queryBuilder;
+  _$FetchFeaturedPostCopyWith<_FetchFeaturedPost> get copyWith;
+}
+
+abstract class _$FetchOldTrendsCopyWith<$Res> {
+  factory _$FetchOldTrendsCopyWith(
+          _FetchOldTrends value, $Res Function(_FetchOldTrends) then) =
+      __$FetchOldTrendsCopyWithImpl<$Res>;
+  $Res call({QueryBuilder queryBuilder});
+}
+
+class __$FetchOldTrendsCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+    implements _$FetchOldTrendsCopyWith<$Res> {
+  __$FetchOldTrendsCopyWithImpl(
+      _FetchOldTrends _value, $Res Function(_FetchOldTrends) _then)
+      : super(_value, (v) => _then(v as _FetchOldTrends));
+
+  @override
+  _FetchOldTrends get _value => super._value as _FetchOldTrends;
+
+  @override
+  $Res call({
+    Object queryBuilder = freezed,
+  }) {
+    return _then(_FetchOldTrends(
+      queryBuilder: queryBuilder == freezed
+          ? _value.queryBuilder
+          : queryBuilder as QueryBuilder,
+    ));
+  }
+}
+
+class _$_FetchOldTrends
+    with DiagnosticableTreeMixin
+    implements _FetchOldTrends {
+  const _$_FetchOldTrends({this.queryBuilder});
+
+  @override
+  final QueryBuilder queryBuilder;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchOldTrends(queryBuilder: $queryBuilder)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchOldTrends'))
+      ..add(DiagnosticsProperty('queryBuilder', queryBuilder));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FetchOldTrends &&
+            (identical(other.queryBuilder, queryBuilder) ||
+                const DeepCollectionEquality()
+                    .equals(other.queryBuilder, queryBuilder)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryBuilder);
+
+  @override
+  _$FetchOldTrendsCopyWith<_FetchOldTrends> get copyWith =>
+      __$FetchOldTrendsCopyWithImpl<_FetchOldTrends>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fetchLatestPosts(QueryBuilder queryBuilder),
+    @required Result fetchCategories(QueryBuilder queryBuilder),
+    @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchOldTrends(queryBuilder);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fetchLatestPosts(QueryBuilder queryBuilder),
+    Result fetchCategories(QueryBuilder queryBuilder),
+    Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchOldTrends != null) {
+      return fetchOldTrends(queryBuilder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fetchLatestPosts(_FetchLatestPosts value),
+    @required Result fetchCategories(_FetchCategories value),
+    @required Result fetchLastMonthPosts(_FetchLastMonth value),
+    @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchOldTrends(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fetchLatestPosts(_FetchLatestPosts value),
+    Result fetchCategories(_FetchCategories value),
+    Result fetchLastMonthPosts(_FetchLastMonth value),
+    Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchOldTrends != null) {
+      return fetchOldTrends(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchOldTrends implements HomeEvent {
+  const factory _FetchOldTrends({QueryBuilder queryBuilder}) =
+      _$_FetchOldTrends;
+
+  QueryBuilder get queryBuilder;
+  _$FetchOldTrendsCopyWith<_FetchOldTrends> get copyWith;
+}
+
+abstract class _$FetchBeautyPostsCopyWith<$Res> {
+  factory _$FetchBeautyPostsCopyWith(
+          _FetchBeautyPosts value, $Res Function(_FetchBeautyPosts) then) =
+      __$FetchBeautyPostsCopyWithImpl<$Res>;
+  $Res call({QueryBuilder queryBuilder});
+}
+
+class __$FetchBeautyPostsCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$FetchBeautyPostsCopyWith<$Res> {
+  __$FetchBeautyPostsCopyWithImpl(
+      _FetchBeautyPosts _value, $Res Function(_FetchBeautyPosts) _then)
+      : super(_value, (v) => _then(v as _FetchBeautyPosts));
+
+  @override
+  _FetchBeautyPosts get _value => super._value as _FetchBeautyPosts;
+
+  @override
+  $Res call({
+    Object queryBuilder = freezed,
+  }) {
+    return _then(_FetchBeautyPosts(
+      queryBuilder: queryBuilder == freezed
+          ? _value.queryBuilder
+          : queryBuilder as QueryBuilder,
+    ));
+  }
+}
+
+class _$_FetchBeautyPosts
+    with DiagnosticableTreeMixin
+    implements _FetchBeautyPosts {
+  const _$_FetchBeautyPosts({this.queryBuilder});
+
+  @override
+  final QueryBuilder queryBuilder;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchBeautyPosts(queryBuilder: $queryBuilder)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchBeautyPosts'))
+      ..add(DiagnosticsProperty('queryBuilder', queryBuilder));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FetchBeautyPosts &&
+            (identical(other.queryBuilder, queryBuilder) ||
+                const DeepCollectionEquality()
+                    .equals(other.queryBuilder, queryBuilder)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryBuilder);
+
+  @override
+  _$FetchBeautyPostsCopyWith<_FetchBeautyPosts> get copyWith =>
+      __$FetchBeautyPostsCopyWithImpl<_FetchBeautyPosts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fetchLatestPosts(QueryBuilder queryBuilder),
+    @required Result fetchCategories(QueryBuilder queryBuilder),
+    @required Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    @required Result sendTimeoutException(Failure failure, HomeEvent sink),
+    @required Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    @required Result fetchEntertainments(QueryBuilder queryBuilder),
+    @required Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    @required Result fetchOldTrends(QueryBuilder queryBuilder),
+    @required Result fetchBeautyPosts(QueryBuilder queryBuilder),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchBeautyPosts(queryBuilder);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fetchLatestPosts(QueryBuilder queryBuilder),
+    Result fetchCategories(QueryBuilder queryBuilder),
+    Result fetchLastMonthPosts(QueryBuilder queryBuilder),
+    Result sendTimeoutException(Failure failure, HomeEvent sink),
+    Result fetchBlackExPosts(QueryBuilder queryBuilder),
+    Result fetchEntertainments(QueryBuilder queryBuilder),
+    Result fetchFeaturedPost(String id, QueryBuilder queryBuilder),
+    Result fetchOldTrends(QueryBuilder queryBuilder),
+    Result fetchBeautyPosts(QueryBuilder queryBuilder),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchBeautyPosts != null) {
+      return fetchBeautyPosts(queryBuilder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fetchLatestPosts(_FetchLatestPosts value),
+    @required Result fetchCategories(_FetchCategories value),
+    @required Result fetchLastMonthPosts(_FetchLastMonth value),
+    @required Result sendTimeoutException(_SendTimeoutException value),
+    @required Result fetchBlackExPosts(_FetchBlackExPosts value),
+    @required Result fetchEntertainments(_FetchEntertainments value),
+    @required Result fetchFeaturedPost(_FetchFeaturedPost value),
+    @required Result fetchOldTrends(_FetchOldTrends value),
+    @required Result fetchBeautyPosts(_FetchBeautyPosts value),
+  }) {
+    assert(fetchLatestPosts != null);
+    assert(fetchCategories != null);
+    assert(fetchLastMonthPosts != null);
+    assert(sendTimeoutException != null);
+    assert(fetchBlackExPosts != null);
+    assert(fetchEntertainments != null);
+    assert(fetchFeaturedPost != null);
+    assert(fetchOldTrends != null);
+    assert(fetchBeautyPosts != null);
+    return fetchBeautyPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fetchLatestPosts(_FetchLatestPosts value),
+    Result fetchCategories(_FetchCategories value),
+    Result fetchLastMonthPosts(_FetchLastMonth value),
+    Result sendTimeoutException(_SendTimeoutException value),
+    Result fetchBlackExPosts(_FetchBlackExPosts value),
+    Result fetchEntertainments(_FetchEntertainments value),
+    Result fetchFeaturedPost(_FetchFeaturedPost value),
+    Result fetchOldTrends(_FetchOldTrends value),
+    Result fetchBeautyPosts(_FetchBeautyPosts value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchBeautyPosts != null) {
+      return fetchBeautyPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchBeautyPosts implements HomeEvent {
+  const factory _FetchBeautyPosts({QueryBuilder queryBuilder}) =
+      _$_FetchBeautyPosts;
+
+  QueryBuilder get queryBuilder;
+  _$FetchBeautyPostsCopyWith<_FetchBeautyPosts> get copyWith;
+}
+
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
   _HomeState call(
       {@required ScrollController scrollController,
+      bool isFetchingMore = false,
       @nullable BuiltList<Post> latestPosts,
       @nullable bool endOfLatestPosts,
       @nullable BuiltList<Taxonomy> categories,
@@ -659,9 +1681,19 @@ class _$HomeStateTearOff {
       @nullable BuiltList<Post> lastMonthPosts,
       @nullable bool endOfLastMonthPosts,
       @nullable ApiClientException<dynamic> failure,
-      @nullable HomeEvent lastSink}) {
+      @nullable HomeEvent lastSink,
+      @nullable BuiltList<Post> blackExPosts,
+      @nullable bool endOfBlackExPosts,
+      @nullable BuiltList<Post> entertainmentPosts,
+      @nullable bool endOfEntertainmentPosts,
+      @nullable Post featuredPost,
+      @nullable BuiltList<Post> olderTrends,
+      @nullable bool endOfOlderTrends,
+      @nullable BuiltList<Post> beautyPosts,
+      @nullable bool endOfBeautyPosts}) {
     return _HomeState(
       scrollController: scrollController,
+      isFetchingMore: isFetchingMore,
       latestPosts: latestPosts,
       endOfLatestPosts: endOfLatestPosts,
       categories: categories,
@@ -670,6 +1702,15 @@ class _$HomeStateTearOff {
       endOfLastMonthPosts: endOfLastMonthPosts,
       failure: failure,
       lastSink: lastSink,
+      blackExPosts: blackExPosts,
+      endOfBlackExPosts: endOfBlackExPosts,
+      entertainmentPosts: entertainmentPosts,
+      endOfEntertainmentPosts: endOfEntertainmentPosts,
+      featuredPost: featuredPost,
+      olderTrends: olderTrends,
+      endOfOlderTrends: endOfOlderTrends,
+      beautyPosts: beautyPosts,
+      endOfBeautyPosts: endOfBeautyPosts,
     );
   }
 }
@@ -679,6 +1720,7 @@ const $HomeState = _$HomeStateTearOff();
 
 mixin _$HomeState {
   ScrollController get scrollController;
+  bool get isFetchingMore;
   @nullable
   BuiltList<Post> get latestPosts;
   @nullable
@@ -695,6 +1737,24 @@ mixin _$HomeState {
   ApiClientException<dynamic> get failure;
   @nullable
   HomeEvent get lastSink;
+  @nullable
+  BuiltList<Post> get blackExPosts;
+  @nullable
+  bool get endOfBlackExPosts;
+  @nullable
+  BuiltList<Post> get entertainmentPosts;
+  @nullable
+  bool get endOfEntertainmentPosts;
+  @nullable
+  Post get featuredPost;
+  @nullable
+  BuiltList<Post> get olderTrends;
+  @nullable
+  bool get endOfOlderTrends;
+  @nullable
+  BuiltList<Post> get beautyPosts;
+  @nullable
+  bool get endOfBeautyPosts;
 
   $HomeStateCopyWith<HomeState> get copyWith;
 }
@@ -704,6 +1764,7 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res>;
   $Res call(
       {ScrollController scrollController,
+      bool isFetchingMore,
       @nullable BuiltList<Post> latestPosts,
       @nullable bool endOfLatestPosts,
       @nullable BuiltList<Taxonomy> categories,
@@ -711,7 +1772,16 @@ abstract class $HomeStateCopyWith<$Res> {
       @nullable BuiltList<Post> lastMonthPosts,
       @nullable bool endOfLastMonthPosts,
       @nullable ApiClientException<dynamic> failure,
-      @nullable HomeEvent lastSink});
+      @nullable HomeEvent lastSink,
+      @nullable BuiltList<Post> blackExPosts,
+      @nullable bool endOfBlackExPosts,
+      @nullable BuiltList<Post> entertainmentPosts,
+      @nullable bool endOfEntertainmentPosts,
+      @nullable Post featuredPost,
+      @nullable BuiltList<Post> olderTrends,
+      @nullable bool endOfOlderTrends,
+      @nullable BuiltList<Post> beautyPosts,
+      @nullable bool endOfBeautyPosts});
 
   $HomeEventCopyWith<$Res> get lastSink;
 }
@@ -726,6 +1796,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call({
     Object scrollController = freezed,
+    Object isFetchingMore = freezed,
     Object latestPosts = freezed,
     Object endOfLatestPosts = freezed,
     Object categories = freezed,
@@ -734,11 +1805,23 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object endOfLastMonthPosts = freezed,
     Object failure = freezed,
     Object lastSink = freezed,
+    Object blackExPosts = freezed,
+    Object endOfBlackExPosts = freezed,
+    Object entertainmentPosts = freezed,
+    Object endOfEntertainmentPosts = freezed,
+    Object featuredPost = freezed,
+    Object olderTrends = freezed,
+    Object endOfOlderTrends = freezed,
+    Object beautyPosts = freezed,
+    Object endOfBeautyPosts = freezed,
   }) {
     return _then(_value.copyWith(
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController as ScrollController,
+      isFetchingMore: isFetchingMore == freezed
+          ? _value.isFetchingMore
+          : isFetchingMore as bool,
       latestPosts: latestPosts == freezed
           ? _value.latestPosts
           : latestPosts as BuiltList<Post>,
@@ -761,6 +1844,32 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.failure
           : failure as ApiClientException<dynamic>,
       lastSink: lastSink == freezed ? _value.lastSink : lastSink as HomeEvent,
+      blackExPosts: blackExPosts == freezed
+          ? _value.blackExPosts
+          : blackExPosts as BuiltList<Post>,
+      endOfBlackExPosts: endOfBlackExPosts == freezed
+          ? _value.endOfBlackExPosts
+          : endOfBlackExPosts as bool,
+      entertainmentPosts: entertainmentPosts == freezed
+          ? _value.entertainmentPosts
+          : entertainmentPosts as BuiltList<Post>,
+      endOfEntertainmentPosts: endOfEntertainmentPosts == freezed
+          ? _value.endOfEntertainmentPosts
+          : endOfEntertainmentPosts as bool,
+      featuredPost:
+          featuredPost == freezed ? _value.featuredPost : featuredPost as Post,
+      olderTrends: olderTrends == freezed
+          ? _value.olderTrends
+          : olderTrends as BuiltList<Post>,
+      endOfOlderTrends: endOfOlderTrends == freezed
+          ? _value.endOfOlderTrends
+          : endOfOlderTrends as bool,
+      beautyPosts: beautyPosts == freezed
+          ? _value.beautyPosts
+          : beautyPosts as BuiltList<Post>,
+      endOfBeautyPosts: endOfBeautyPosts == freezed
+          ? _value.endOfBeautyPosts
+          : endOfBeautyPosts as bool,
     ));
   }
 
@@ -782,6 +1891,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call(
       {ScrollController scrollController,
+      bool isFetchingMore,
       @nullable BuiltList<Post> latestPosts,
       @nullable bool endOfLatestPosts,
       @nullable BuiltList<Taxonomy> categories,
@@ -789,7 +1899,16 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       @nullable BuiltList<Post> lastMonthPosts,
       @nullable bool endOfLastMonthPosts,
       @nullable ApiClientException<dynamic> failure,
-      @nullable HomeEvent lastSink});
+      @nullable HomeEvent lastSink,
+      @nullable BuiltList<Post> blackExPosts,
+      @nullable bool endOfBlackExPosts,
+      @nullable BuiltList<Post> entertainmentPosts,
+      @nullable bool endOfEntertainmentPosts,
+      @nullable Post featuredPost,
+      @nullable BuiltList<Post> olderTrends,
+      @nullable bool endOfOlderTrends,
+      @nullable BuiltList<Post> beautyPosts,
+      @nullable bool endOfBeautyPosts});
 
   @override
   $HomeEventCopyWith<$Res> get lastSink;
@@ -806,6 +1925,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object scrollController = freezed,
+    Object isFetchingMore = freezed,
     Object latestPosts = freezed,
     Object endOfLatestPosts = freezed,
     Object categories = freezed,
@@ -814,11 +1934,23 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object endOfLastMonthPosts = freezed,
     Object failure = freezed,
     Object lastSink = freezed,
+    Object blackExPosts = freezed,
+    Object endOfBlackExPosts = freezed,
+    Object entertainmentPosts = freezed,
+    Object endOfEntertainmentPosts = freezed,
+    Object featuredPost = freezed,
+    Object olderTrends = freezed,
+    Object endOfOlderTrends = freezed,
+    Object beautyPosts = freezed,
+    Object endOfBeautyPosts = freezed,
   }) {
     return _then(_HomeState(
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController as ScrollController,
+      isFetchingMore: isFetchingMore == freezed
+          ? _value.isFetchingMore
+          : isFetchingMore as bool,
       latestPosts: latestPosts == freezed
           ? _value.latestPosts
           : latestPosts as BuiltList<Post>,
@@ -841,6 +1973,32 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.failure
           : failure as ApiClientException<dynamic>,
       lastSink: lastSink == freezed ? _value.lastSink : lastSink as HomeEvent,
+      blackExPosts: blackExPosts == freezed
+          ? _value.blackExPosts
+          : blackExPosts as BuiltList<Post>,
+      endOfBlackExPosts: endOfBlackExPosts == freezed
+          ? _value.endOfBlackExPosts
+          : endOfBlackExPosts as bool,
+      entertainmentPosts: entertainmentPosts == freezed
+          ? _value.entertainmentPosts
+          : entertainmentPosts as BuiltList<Post>,
+      endOfEntertainmentPosts: endOfEntertainmentPosts == freezed
+          ? _value.endOfEntertainmentPosts
+          : endOfEntertainmentPosts as bool,
+      featuredPost:
+          featuredPost == freezed ? _value.featuredPost : featuredPost as Post,
+      olderTrends: olderTrends == freezed
+          ? _value.olderTrends
+          : olderTrends as BuiltList<Post>,
+      endOfOlderTrends: endOfOlderTrends == freezed
+          ? _value.endOfOlderTrends
+          : endOfOlderTrends as bool,
+      beautyPosts: beautyPosts == freezed
+          ? _value.beautyPosts
+          : beautyPosts as BuiltList<Post>,
+      endOfBeautyPosts: endOfBeautyPosts == freezed
+          ? _value.endOfBeautyPosts
+          : endOfBeautyPosts as bool,
     ));
   }
 }
@@ -848,6 +2006,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   const _$_HomeState(
       {@required this.scrollController,
+      this.isFetchingMore = false,
       @nullable this.latestPosts,
       @nullable this.endOfLatestPosts,
       @nullable this.categories,
@@ -855,11 +2014,24 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       @nullable this.lastMonthPosts,
       @nullable this.endOfLastMonthPosts,
       @nullable this.failure,
-      @nullable this.lastSink})
-      : assert(scrollController != null);
+      @nullable this.lastSink,
+      @nullable this.blackExPosts,
+      @nullable this.endOfBlackExPosts,
+      @nullable this.entertainmentPosts,
+      @nullable this.endOfEntertainmentPosts,
+      @nullable this.featuredPost,
+      @nullable this.olderTrends,
+      @nullable this.endOfOlderTrends,
+      @nullable this.beautyPosts,
+      @nullable this.endOfBeautyPosts})
+      : assert(scrollController != null),
+        assert(isFetchingMore != null);
 
   @override
   final ScrollController scrollController;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isFetchingMore;
   @override
   @nullable
   final BuiltList<Post> latestPosts;
@@ -884,10 +2056,37 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   @override
   @nullable
   final HomeEvent lastSink;
+  @override
+  @nullable
+  final BuiltList<Post> blackExPosts;
+  @override
+  @nullable
+  final bool endOfBlackExPosts;
+  @override
+  @nullable
+  final BuiltList<Post> entertainmentPosts;
+  @override
+  @nullable
+  final bool endOfEntertainmentPosts;
+  @override
+  @nullable
+  final Post featuredPost;
+  @override
+  @nullable
+  final BuiltList<Post> olderTrends;
+  @override
+  @nullable
+  final bool endOfOlderTrends;
+  @override
+  @nullable
+  final BuiltList<Post> beautyPosts;
+  @override
+  @nullable
+  final bool endOfBeautyPosts;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(scrollController: $scrollController, latestPosts: $latestPosts, endOfLatestPosts: $endOfLatestPosts, categories: $categories, endOfCategories: $endOfCategories, lastMonthPosts: $lastMonthPosts, endOfLastMonthPosts: $endOfLastMonthPosts, failure: $failure, lastSink: $lastSink)';
+    return 'HomeState(scrollController: $scrollController, isFetchingMore: $isFetchingMore, latestPosts: $latestPosts, endOfLatestPosts: $endOfLatestPosts, categories: $categories, endOfCategories: $endOfCategories, lastMonthPosts: $lastMonthPosts, endOfLastMonthPosts: $endOfLastMonthPosts, failure: $failure, lastSink: $lastSink, blackExPosts: $blackExPosts, endOfBlackExPosts: $endOfBlackExPosts, entertainmentPosts: $entertainmentPosts, endOfEntertainmentPosts: $endOfEntertainmentPosts, featuredPost: $featuredPost, olderTrends: $olderTrends, endOfOlderTrends: $endOfOlderTrends, beautyPosts: $beautyPosts, endOfBeautyPosts: $endOfBeautyPosts)';
   }
 
   @override
@@ -896,6 +2095,7 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
       ..add(DiagnosticsProperty('scrollController', scrollController))
+      ..add(DiagnosticsProperty('isFetchingMore', isFetchingMore))
       ..add(DiagnosticsProperty('latestPosts', latestPosts))
       ..add(DiagnosticsProperty('endOfLatestPosts', endOfLatestPosts))
       ..add(DiagnosticsProperty('categories', categories))
@@ -903,7 +2103,17 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       ..add(DiagnosticsProperty('lastMonthPosts', lastMonthPosts))
       ..add(DiagnosticsProperty('endOfLastMonthPosts', endOfLastMonthPosts))
       ..add(DiagnosticsProperty('failure', failure))
-      ..add(DiagnosticsProperty('lastSink', lastSink));
+      ..add(DiagnosticsProperty('lastSink', lastSink))
+      ..add(DiagnosticsProperty('blackExPosts', blackExPosts))
+      ..add(DiagnosticsProperty('endOfBlackExPosts', endOfBlackExPosts))
+      ..add(DiagnosticsProperty('entertainmentPosts', entertainmentPosts))
+      ..add(DiagnosticsProperty(
+          'endOfEntertainmentPosts', endOfEntertainmentPosts))
+      ..add(DiagnosticsProperty('featuredPost', featuredPost))
+      ..add(DiagnosticsProperty('olderTrends', olderTrends))
+      ..add(DiagnosticsProperty('endOfOlderTrends', endOfOlderTrends))
+      ..add(DiagnosticsProperty('beautyPosts', beautyPosts))
+      ..add(DiagnosticsProperty('endOfBeautyPosts', endOfBeautyPosts));
   }
 
   @override
@@ -913,6 +2123,9 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
             (identical(other.scrollController, scrollController) ||
                 const DeepCollectionEquality()
                     .equals(other.scrollController, scrollController)) &&
+            (identical(other.isFetchingMore, isFetchingMore) ||
+                const DeepCollectionEquality()
+                    .equals(other.isFetchingMore, isFetchingMore)) &&
             (identical(other.latestPosts, latestPosts) ||
                 const DeepCollectionEquality()
                     .equals(other.latestPosts, latestPosts)) &&
@@ -936,13 +2149,42 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
                     .equals(other.failure, failure)) &&
             (identical(other.lastSink, lastSink) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastSink, lastSink)));
+                    .equals(other.lastSink, lastSink)) &&
+            (identical(other.blackExPosts, blackExPosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.blackExPosts, blackExPosts)) &&
+            (identical(other.endOfBlackExPosts, endOfBlackExPosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.endOfBlackExPosts, endOfBlackExPosts)) &&
+            (identical(other.entertainmentPosts, entertainmentPosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.entertainmentPosts, entertainmentPosts)) &&
+            (identical(
+                    other.endOfEntertainmentPosts, endOfEntertainmentPosts) ||
+                const DeepCollectionEquality().equals(
+                    other.endOfEntertainmentPosts, endOfEntertainmentPosts)) &&
+            (identical(other.featuredPost, featuredPost) ||
+                const DeepCollectionEquality()
+                    .equals(other.featuredPost, featuredPost)) &&
+            (identical(other.olderTrends, olderTrends) ||
+                const DeepCollectionEquality()
+                    .equals(other.olderTrends, olderTrends)) &&
+            (identical(other.endOfOlderTrends, endOfOlderTrends) ||
+                const DeepCollectionEquality()
+                    .equals(other.endOfOlderTrends, endOfOlderTrends)) &&
+            (identical(other.beautyPosts, beautyPosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.beautyPosts, beautyPosts)) &&
+            (identical(other.endOfBeautyPosts, endOfBeautyPosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.endOfBeautyPosts, endOfBeautyPosts)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(scrollController) ^
+      const DeepCollectionEquality().hash(isFetchingMore) ^
       const DeepCollectionEquality().hash(latestPosts) ^
       const DeepCollectionEquality().hash(endOfLatestPosts) ^
       const DeepCollectionEquality().hash(categories) ^
@@ -950,7 +2192,16 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
       const DeepCollectionEquality().hash(lastMonthPosts) ^
       const DeepCollectionEquality().hash(endOfLastMonthPosts) ^
       const DeepCollectionEquality().hash(failure) ^
-      const DeepCollectionEquality().hash(lastSink);
+      const DeepCollectionEquality().hash(lastSink) ^
+      const DeepCollectionEquality().hash(blackExPosts) ^
+      const DeepCollectionEquality().hash(endOfBlackExPosts) ^
+      const DeepCollectionEquality().hash(entertainmentPosts) ^
+      const DeepCollectionEquality().hash(endOfEntertainmentPosts) ^
+      const DeepCollectionEquality().hash(featuredPost) ^
+      const DeepCollectionEquality().hash(olderTrends) ^
+      const DeepCollectionEquality().hash(endOfOlderTrends) ^
+      const DeepCollectionEquality().hash(beautyPosts) ^
+      const DeepCollectionEquality().hash(endOfBeautyPosts);
 
   @override
   _$HomeStateCopyWith<_HomeState> get copyWith =>
@@ -960,6 +2211,7 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {@required ScrollController scrollController,
+      bool isFetchingMore,
       @nullable BuiltList<Post> latestPosts,
       @nullable bool endOfLatestPosts,
       @nullable BuiltList<Taxonomy> categories,
@@ -967,10 +2219,21 @@ abstract class _HomeState implements HomeState {
       @nullable BuiltList<Post> lastMonthPosts,
       @nullable bool endOfLastMonthPosts,
       @nullable ApiClientException<dynamic> failure,
-      @nullable HomeEvent lastSink}) = _$_HomeState;
+      @nullable HomeEvent lastSink,
+      @nullable BuiltList<Post> blackExPosts,
+      @nullable bool endOfBlackExPosts,
+      @nullable BuiltList<Post> entertainmentPosts,
+      @nullable bool endOfEntertainmentPosts,
+      @nullable Post featuredPost,
+      @nullable BuiltList<Post> olderTrends,
+      @nullable bool endOfOlderTrends,
+      @nullable BuiltList<Post> beautyPosts,
+      @nullable bool endOfBeautyPosts}) = _$_HomeState;
 
   @override
   ScrollController get scrollController;
+  @override
+  bool get isFetchingMore;
   @override
   @nullable
   BuiltList<Post> get latestPosts;
@@ -995,6 +2258,33 @@ abstract class _HomeState implements HomeState {
   @override
   @nullable
   HomeEvent get lastSink;
+  @override
+  @nullable
+  BuiltList<Post> get blackExPosts;
+  @override
+  @nullable
+  bool get endOfBlackExPosts;
+  @override
+  @nullable
+  BuiltList<Post> get entertainmentPosts;
+  @override
+  @nullable
+  bool get endOfEntertainmentPosts;
+  @override
+  @nullable
+  Post get featuredPost;
+  @override
+  @nullable
+  BuiltList<Post> get olderTrends;
+  @override
+  @nullable
+  bool get endOfOlderTrends;
+  @override
+  @nullable
+  BuiltList<Post> get beautyPosts;
+  @override
+  @nullable
+  bool get endOfBeautyPosts;
   @override
   _$HomeStateCopyWith<_HomeState> get copyWith;
 }

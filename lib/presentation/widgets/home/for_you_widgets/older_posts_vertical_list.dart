@@ -7,6 +7,7 @@ class OlderPostsVerticalList extends StatefulWidget {
 
 class _OlderPostsVerticalListState extends State<OlderPostsVerticalList> with AutomaticKeepAliveClientMixin {
   HomeBloc _bloc;
+  int _page = 1;
 
   @override
   bool get wantKeepAlive => true;
@@ -59,13 +60,7 @@ class _OlderPostsVerticalListState extends State<OlderPostsVerticalList> with Au
           controller: ScrollController(),
           itemCount: _calculateListItemCount() + 1,
           itemBuilder: (_, index) {
-            var isEnd = _bloc?.state?.endOfLastMonthPosts ?? false;
-            if (index == _calculateListItemCount()) {
-              return Visibility(
-                visible: !isEnd,
-                child: Align(alignment: Alignment.center, child: MkCircularProgressIndicator()),
-              );
-            }
+            if (index == _calculateListItemCount()) return _loadMoreButton(_bloc?.state?.endOfLastMonthPosts ?? false);
             return _lastMothPostsBuilder(_bloc.state.lastMonthPosts.elementAt(index));
           },
         );
@@ -87,10 +82,7 @@ class _OlderPostsVerticalListState extends State<OlderPostsVerticalList> with Au
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(8.0),
           child: InkWell(
-            onTap: () => navigateAndPush(
-              routeName: PostDetailScreen.routeName,
-//              arguments: ModelRouteArg(model: post, heroTag: "recent-${post.id}"),
-            ),
+            onTap: () => navigateToPostDetail("last-month-${post.id}", post),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -172,6 +164,44 @@ class _OlderPostsVerticalListState extends State<OlderPostsVerticalList> with Au
           ),
         ),
       ),
+    );
+  }
+
+  Widget _loadMoreButton(bool isAtMax) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(width: Get.width * 0.08),
+        Visibility(
+          visible: _bloc.state.isFetchingMore,
+          child: CupertinoActivityIndicator(),
+        ),
+        SizedBox(width: Get.width * 0.05),
+        Visibility(
+          visible: !isAtMax && !_bloc.state.isFetchingMore,
+          child: RaisedButton(
+            onPressed: () => _bloc
+              ..dispatchLastMonthPostsEvent(QueryBuilder(
+                page: ++_page,
+                perPage: MkHelpers.lastMonthPostsPerPage,
+                orderBy: PostOrder.date,
+                before: MkHelpers.getDate(today.subtract(Duration(days: 7))),
+                after: MkHelpers.getDate(today.subtract(Duration(days: 30))),
+              )),
+            child: Text(
+              "Load more..",
+              style: Get.textTheme.button.copyWith(color: Colors.white),
+            ),
+            elevation: 0.0,
+            highlightElevation: 1.0,
+            color: AtColors.accentColor.shade400,
+            highlightColor: Colors.white12,
+            splashColor: Colors.white30,
+            shape: StadiumBorder(),
+          ),
+        ),
+      ],
     );
   }
 }

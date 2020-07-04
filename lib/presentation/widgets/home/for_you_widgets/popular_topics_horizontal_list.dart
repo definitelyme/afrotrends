@@ -100,6 +100,7 @@ class _PopularTopicsHorizontalListState extends State<PopularTopicsHorizontalLis
   }
 
   Widget _categoriesBuilder(Taxonomy category) {
+//    print("${category.name} =>> ${category.count}");
     String image = _IMAGES.contains(Slugify(category.name, delimiter: "_")) ? Slugify(category.name, delimiter: "_") : "default";
 
     return Container(

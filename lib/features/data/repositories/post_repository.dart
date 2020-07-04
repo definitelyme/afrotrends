@@ -24,6 +24,11 @@ class PostRepository {
 //    return null;
   }
 
+  Future<Post> fetchSinglePost(String id, {QueryBuilder query}) async {
+    final post = _postDataSource.fetchSingleton(id, query: query);
+    return post;
+  }
+
   Future<Posts> fetchOlderPosts({QueryBuilder query}) async {
     final lastMonthPosts = await _postDataSource.fetchOlderPosts(query: query);
     return lastMonthPosts;

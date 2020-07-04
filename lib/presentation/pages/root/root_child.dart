@@ -7,9 +7,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RootChild extends StatelessWidget {
+class RootChild extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  _RootChildState createState() => _RootChildState();
+}
+
+class _RootChildState extends State<RootChild> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
     // Dispatch the event to fetch latest posts
     BlocProvider.of<HomeBloc>(context)
       ..dispatchLatestPostEvent(QueryBuilder(
@@ -33,7 +40,10 @@ class RootChild extends StatelessWidget {
         before: MkHelpers.getDate(today.subtract(Duration(days: 7))),
         after: MkHelpers.getDate(today.subtract(Duration(days: 30))),
       ));
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return HomeScreen();
   }
 }

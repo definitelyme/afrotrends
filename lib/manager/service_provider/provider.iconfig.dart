@@ -7,6 +7,7 @@
 import 'package:afrotrends/manager/service_modules/data_module.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
+import 'package:afrotrends/presentation/manager/detail_bloc/post/post_bloc.dart';
 import 'package:retry/retry.dart';
 import 'package:afrotrends/features/data/client/dio/dio_client.dart';
 import 'package:afrotrends/features/domain/api_client/client.dart';
@@ -22,6 +23,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<DataConnectionChecker>(
       () => dataModule.connectionChecker);
   g.registerLazySingleton<Dio>(() => dataModule.dio);
+  g.registerFactory<PostBloc>(() => PostBloc());
   g.registerLazySingleton<RetryOptions>(() => dataModule.retryOptions);
   g.registerFactory<ApiClient<Response<dynamic>>>(() => DioClient(g<Dio>()));
   g.registerLazySingleton<CategoryDataSource>(() =>

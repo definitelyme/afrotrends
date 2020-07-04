@@ -12,6 +12,9 @@ part 'taxonomy.g.dart';
 abstract class Taxonomy implements Built<Taxonomy, TaxonomyBuilder> {
   @nullable
   @BuiltValueField(wireName: "term_id")
+  int get termId;
+
+  @nullable
   int get id;
 
   @nullable
@@ -22,13 +25,17 @@ abstract class Taxonomy implements Built<Taxonomy, TaxonomyBuilder> {
   int get count;
 
   @nullable
+  String get taxonomy;
+
+  @nullable
   @BuiltValueField(wireName: "slug")
   String get slug;
 
   Taxonomy._();
 
   static void _initializeBuilder(TaxonomyBuilder builder) => builder
-    ..id = -1
+    ..id = 0
+    ..termId = -1
     ..name = null
     ..slug = null;
 

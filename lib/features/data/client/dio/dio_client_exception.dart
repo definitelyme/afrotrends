@@ -20,7 +20,7 @@ abstract class DioClientException implements ApiClientException<DioError>, _$Dio
   factory DioClientException.unStableInternet({
     API_ERROR_CODE code,
     DioErrorType type = DioErrorType.CONNECT_TIMEOUT,
-    String message = "Unstable internet connection! Retrying..",
+    String message = "Unstable internet connection!",
   }) =>
       DioClientException(
         code: code,

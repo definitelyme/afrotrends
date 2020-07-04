@@ -153,10 +153,7 @@ class _LatestNewsHorizontalListState extends State<LatestNewsHorizontalList> wit
                 type: MaterialType.transparency,
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () => navigateAndPush(
-                    routeName: PostDetailScreen.routeName,
-//                    arguments: ModelRouteArg(model: post, heroTag: "latest-${post.id}"),
-                  ),
+                  onTap: () => navigateToPostDetail("latest-${post.id}", post),
                   child: Container(),
                 ),
               ),
