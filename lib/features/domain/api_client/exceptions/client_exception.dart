@@ -8,4 +8,4 @@ abstract class ApiClientException<U> implements Failure {
   String get message;
 }
 
-enum API_ERROR_CODE { NO_MORE_POSTS }
+enum API_ERROR_CODE { NO_MORE_ITEMS }

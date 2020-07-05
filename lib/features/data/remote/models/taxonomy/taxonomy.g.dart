@@ -18,9 +18,15 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
   Iterable<Object> serialize(Serializers serializers, Taxonomy object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.id != null) {
+    if (object.termId != null) {
       result
         ..add('term_id')
+        ..add(serializers.serialize(object.termId,
+            specifiedType: const FullType(int)));
+    }
+    if (object.id != null) {
+      result
+        ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
     }
@@ -28,6 +34,18 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
       result
         ..add('name')
         ..add(serializers.serialize(object.name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.count != null) {
+      result
+        ..add('count')
+        ..add(serializers.serialize(object.count,
+            specifiedType: const FullType(int)));
+    }
+    if (object.taxonomy != null) {
+      result
+        ..add('taxonomy')
+        ..add(serializers.serialize(object.taxonomy,
             specifiedType: const FullType(String)));
     }
     if (object.slug != null) {
@@ -51,11 +69,23 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'term_id':
+          result.termId = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'id':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
         case 'name':
           result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'taxonomy':
+          result.taxonomy = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'slug':
@@ -71,16 +101,24 @@ class _$TaxonomySerializer implements StructuredSerializer<Taxonomy> {
 
 class _$Taxonomy extends Taxonomy {
   @override
+  final int termId;
+  @override
   final int id;
   @override
   final String name;
+  @override
+  final int count;
+  @override
+  final String taxonomy;
   @override
   final String slug;
 
   factory _$Taxonomy([void Function(TaxonomyBuilder) updates]) =>
       (new TaxonomyBuilder()..update(updates)).build();
 
-  _$Taxonomy._({this.id, this.name, this.slug}) : super._();
+  _$Taxonomy._(
+      {this.termId, this.id, this.name, this.count, this.taxonomy, this.slug})
+      : super._();
 
   @override
   Taxonomy rebuild(void Function(TaxonomyBuilder) updates) =>
@@ -93,21 +131,32 @@ class _$Taxonomy extends Taxonomy {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Taxonomy &&
+        termId == other.termId &&
         id == other.id &&
         name == other.name &&
+        count == other.count &&
+        taxonomy == other.taxonomy &&
         slug == other.slug;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, id.hashCode), name.hashCode), slug.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc($jc($jc($jc(0, termId.hashCode), id.hashCode), name.hashCode),
+                count.hashCode),
+            taxonomy.hashCode),
+        slug.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Taxonomy')
+          ..add('termId', termId)
           ..add('id', id)
           ..add('name', name)
+          ..add('count', count)
+          ..add('taxonomy', taxonomy)
           ..add('slug', slug))
         .toString();
   }
@@ -116,6 +165,10 @@ class _$Taxonomy extends Taxonomy {
 class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
   _$Taxonomy _$v;
 
+  int _termId;
+  int get termId => _$this._termId;
+  set termId(int termId) => _$this._termId = termId;
+
   int _id;
   int get id => _$this._id;
   set id(int id) => _$this._id = id;
@@ -123,6 +176,14 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
   String _name;
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
+
+  int _count;
+  int get count => _$this._count;
+  set count(int count) => _$this._count = count;
+
+  String _taxonomy;
+  String get taxonomy => _$this._taxonomy;
+  set taxonomy(String taxonomy) => _$this._taxonomy = taxonomy;
 
   String _slug;
   String get slug => _$this._slug;
@@ -134,8 +195,11 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
 
   TaxonomyBuilder get _$this {
     if (_$v != null) {
+      _termId = _$v.termId;
       _id = _$v.id;
       _name = _$v.name;
+      _count = _$v.count;
+      _taxonomy = _$v.taxonomy;
       _slug = _$v.slug;
       _$v = null;
     }
@@ -157,7 +221,14 @@ class TaxonomyBuilder implements Builder<Taxonomy, TaxonomyBuilder> {
 
   @override
   _$Taxonomy build() {
-    final _$result = _$v ?? new _$Taxonomy._(id: id, name: name, slug: slug);
+    final _$result = _$v ??
+        new _$Taxonomy._(
+            termId: termId,
+            id: id,
+            name: name,
+            count: count,
+            taxonomy: taxonomy,
+            slug: slug);
     replace(_$result);
     return _$result;
   }

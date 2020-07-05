@@ -16,8 +16,10 @@ dependencies:
   http: any
   # An http middleware for HTTP authentication (Basic/Digest).
   http_auth: ^0.2.9
-  dio: ^3.0.9
+  # A plugin for dio that caches responses
+  # for better optimization and offline data access.
   dio_http_cache: any
+  dio_cache: ^0.4.0-beta
 #  dio_retry: ^0.1.9-beta
   retry: ^3.0.0+1
   # Navigate without context,
@@ -34,7 +36,8 @@ dependencies:
   dartz: any
   # Check Internet connectivity
   data_connection_checker: any
-#  connectivity: any
+  # A carousel slider widget.
+  carousel_slider: ^2.2.1
   # Model equality
   equatable: any
   # For regular Unions
@@ -65,6 +68,7 @@ dependencies:
   notification_permissions: any
   # Flutter widget that automatically resizes text to fit perfectly within its bounds.
   auto_size_text: any
+  slugify: ^1.0.0
 #  sqlcool: any
   # A library useful for creating fuzzy timestamps. (e.g. "5 minutes ago")
   timeago: any
@@ -75,6 +79,7 @@ dependencies:
 dependency_overrides:
   # A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: '2.0.0-rc'
+  dio: '^3.0.9'
 
 dev_dependencies:
   flutter_driver:
@@ -96,7 +101,9 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/dev/
-    - assets/images/dev/categories/
+    - assets/images/prod/
+    - assets/images/prod/categories/
+    - assets/images/prod/defaults/
     #   - images/a_dot_ham.jpeg
 
   fonts:

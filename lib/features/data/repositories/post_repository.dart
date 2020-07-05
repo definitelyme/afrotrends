@@ -16,15 +16,18 @@ class PostRepository {
         _postDataSource = dataSource;
 
   Future<Posts> fetchLatestPosts({QueryBuilder query}) async {
-    final posts = _postDataSource.fetchLatestPosts(query: query);
-    // Here, we'll cache new incoming posts
-    return posts;
+    return await _postDataSource.fetchLatestPosts(query: query);
+  }
 
-    // Else fetch from Cache
-//    return null;
+  Future<Posts> fetchRelatedPosts(QueryBuilder query) async {
+    return await _postDataSource.fetchLatestPosts(query: query);
+  }
+
+  Future<Post> fetchSinglePost(String id, {QueryBuilder query}) async {
+    return await _postDataSource.fetchSingleton(id, query: query);
   }
 
   Future<Posts> fetchOlderPosts({QueryBuilder query}) async {
-    //
+    return await _postDataSource.fetchOlderPosts(query: query);
   }
 }

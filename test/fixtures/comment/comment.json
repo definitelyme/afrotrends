@@ -1,0 +1,42 @@
+{
+  "id": 73,
+  "post": 4592,
+  "parent": 0,
+  "author": 0,
+  "author_name": "Liah",
+  "author_url": "",
+  "date": "2020-06-22T17:31:44",
+  "date_gmt": "2020-06-22T17:31:44",
+  "content": {
+    "rendered": "<p>We all make mistakes No one is perfect. He admitted his mistake and asked for an apology.</p>\n"
+  },
+  "link": "https://afrotrends.com/2020/06/22/gilbert-arenas-apologizes-to-lupita-nyongo-for-colorist-remarks-about-her-beauty/#comment-73",
+  "status": "approved",
+  "type": "comment",
+  "author_avatar_urls": {
+    "24": "https://secure.gravatar.com/avatar/9b2cc36992619749ab613607ebe82b01?s=24&d=mm&r=g",
+    "48": "https://secure.gravatar.com/avatar/9b2cc36992619749ab613607ebe82b01?s=48&d=mm&r=g",
+    "96": "https://secure.gravatar.com/avatar/9b2cc36992619749ab613607ebe82b01?s=96&d=mm&r=g"
+  },
+  "meta": [],
+  "acf": [],
+  "_links": {
+    "self": [
+      {
+        "href": "https://afrotrends.com/wp-json/wp/v2/comments/73"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://afrotrends.com/wp-json/wp/v2/comments"
+      }
+    ],
+    "up": [
+      {
+        "embeddable": true,
+        "post_type": "post",
+        "href": "https://afrotrends.com/wp-json/wp/v2/posts/4592"
+      }
+    ]
+  }
+}
