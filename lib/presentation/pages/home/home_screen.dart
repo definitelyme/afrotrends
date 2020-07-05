@@ -79,6 +79,24 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   backgroundImage: AssetImage("$IMAGES_FOLDER/icon.png"),
                   backgroundColor: AtColors.accentColor,
                 ),
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.help_outline),
+                    color: Colors.black,
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (context) => AboutDialog(
+                        applicationName: "Afrotrends",
+                        applicationIcon: Image(
+                          image: AssetImage("$IMAGES_FOLDER/icon.png"),
+                          width: Get.width * 0.14,
+                          fit: BoxFit.cover,
+                        ),
+                        applicationVersion: "1.0.1",
+                      ),
+                    ),
+                  ),
+                ],
                 bottom: PreferredSize(
                   preferredSize: Size(double.infinity, Get.height * 0.05),
                   child: TabBar(
@@ -99,9 +117,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         );
                       },
                     ).toList(),
-                    onTap: (index) {
-                      //
-                    },
                   ),
                 ),
               ),

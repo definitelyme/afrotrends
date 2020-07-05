@@ -2,6 +2,7 @@ import 'package:afrotrends/features/data/remote/models/comment/exports_comment.d
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
 import 'package:afrotrends/manager/service_provider/provider.dart';
 import 'package:afrotrends/presentation/manager/detail_bloc/post/post_bloc.dart';
+import 'package:afrotrends/presentation/pages/detail/components/comment_box.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/utils/navigator.dart';
@@ -44,126 +45,126 @@ class PostDetailScreen extends StatelessWidget {
             onPressed: () => navigateBack(),
           ),
         ),
-        body: BlocConsumer<PostBloc, PostBlocState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              return ListView(
-                key: ValueKey("post-screen-listView"),
-                scrollDirection: Axis.vertical,
-                controller: _scrollController,
-                padding: defaultEdgeSpacing(context),
-                children: [
-                  Text(
-                    postTitle,
-                    style: Get.textTheme.headline6.copyWith(fontSize: 20.0),
-                    softWrap: true,
-                    semanticsLabel: "Post Title",
-                  ),
-                  SizedBox(height: Get.height * 0.03),
-                  Hero(
-                    tag: heroTag,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(defaultCardRadius()),
-                      child: Container(
-                        height: Get.height * 0.35,
-                        child: GridTile(
-                          footer: Container(
-                            color: Colors.black45,
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 0.0,
-                              child: ListTile(
-                                leading: ClipRRect(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: Image.network(
-                                    userAvatar,
-                                    height: 40,
-                                    width: 40,
-                                  ),
-                                ),
-                                title: Text(
-                                  "Posted by",
-                                  style: Get.textTheme.subtitle1.copyWith(color: Colors.white70),
-                                ),
-                                subtitle: RichText(
-                                  text: TextSpan(
-                                    text: post?.customField?.user?.displayName,
-                                    children: [
-                                      TextSpan(text: " | "),
-                                      TextSpan(text: "${DateFormat.yMMMd().format(DateTime.parse(post.createdAt))}"),
-                                    ],
-                                  ),
-                                ),
-                              ),
+        body: ListView(
+          key: ValueKey("post-screen-listView"),
+          scrollDirection: Axis.vertical,
+          controller: _scrollController,
+          padding: defaultEdgeSpacing(context),
+          children: [
+            Text(
+              postTitle,
+              style: Get.textTheme.headline6.copyWith(fontSize: 20.0),
+              softWrap: true,
+              semanticsLabel: "Post Title",
+            ),
+            SizedBox(height: Get.height * 0.03),
+            Hero(
+              tag: heroTag,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(defaultCardRadius()),
+                child: Container(
+                  height: Get.height * 0.35,
+                  child: GridTile(
+                    footer: Container(
+                      color: Colors.black45,
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 0.0,
+                        child: ListTile(
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(6.0),
+                            child: Image.network(
+                              userAvatar,
+                              height: 40,
+                              width: 40,
                             ),
                           ),
-                          child: CachedNetworkImage(
-                            imageUrl: post?.customField?.featuredImage?.elementAt(0)?.sourceUrl,
-                            imageBuilder: (context, imageProvider) => Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(12.0), bottomRight: Radius.circular(12.0)),
-                                image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
-                              ),
+                          title: Text(
+                            "Posted by",
+                            style: Get.textTheme.subtitle1.copyWith(color: Colors.white70),
+                          ),
+                          subtitle: RichText(
+                            text: TextSpan(
+                              text: post?.customField?.user?.displayName,
+                              children: [
+                                TextSpan(text: " | "),
+                                TextSpan(text: "${DateFormat.yMMMd().format(DateTime.parse(post.createdAt))}"),
+                              ],
                             ),
-                            placeholder: (context, url) => Center(
-                              child: CupertinoActivityIndicator(),
-                            ),
-                            errorWidget: (context, url, error) => Icon(Icons.error, color: AtColors.accentColor),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: Get.height * 0.03),
-                  HtmlView(
-                    data: post.content.rendered,
-                    onLaunchFail: (url) {
-                      print("launch failed");
-                    },
-                    stylingOptions: null,
-                    scrollable: false,
-                  ),
-                  SizedBox(height: Get.height * 0.04),
-                  Container(
-                    padding: defaultEdgeSpacing(context),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Comments",
-                            style: Get.textTheme.subtitle1.copyWith(
-                              color: Colors.black87,
-                              fontSize: 17.0,
-                              fontWeight: FontWeight.w500,
-                            )),
-                      ],
+                    child: CachedNetworkImage(
+                      imageUrl: post?.customField?.featuredImage?.elementAt(0)?.sourceUrl,
+                      imageBuilder: (context, imageProvider) => Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(12.0), bottomRight: Radius.circular(12.0)),
+                          image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+                        ),
+                      ),
+                      placeholder: (context, url) => Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+                      errorWidget: (context, url, error) => Icon(Icons.error, color: AtColors.accentColor),
                     ),
                   ),
-                  SizedBox(height: Get.height * 0.02),
-                  Visibility(
-                    visible: context.bloc<PostBloc>().state.comments != null && context.bloc<PostBloc>().state.comments.isNotEmpty,
-                    replacement: AutoSizeText(
-                      "Be the first to comment.",
-                      softWrap: true,
-                      style: Get.textTheme.bodyText2.copyWith(color: Colors.grey.shade600),
-                    ),
-                    child: Column(
-                      children: [
-                        if (context.bloc<PostBloc>().state.comments != null)
-                          for (Comment item in context.bloc<PostBloc>().state.comments)
-                            Column(
-                              children: [
-                                CommentBubble(comment: item),
-                                SizedBox(height: Get.height * 0.02),
-                              ],
-                            ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: Get.height * 0.02),
+                ),
+              ),
+            ),
+            SizedBox(height: Get.height * 0.03),
+            HtmlView(
+              data: post.content.rendered,
+              onLaunchFail: (url) {
+                print("launch failed");
+              },
+              stylingOptions: null,
+              scrollable: false,
+            ),
+            SizedBox(height: Get.height * 0.04),
+            Container(
+              padding: defaultEdgeSpacing(context),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Comments",
+                      style: Get.textTheme.subtitle1.copyWith(
+                        color: Colors.black87,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w500,
+                      )),
                 ],
+              ),
+            ),
+            SizedBox(height: Get.height * 0.02),
+            BlocBuilder<PostBloc, PostBlocState>(builder: (context, state) {
+              return Visibility(
+                visible: context.bloc<PostBloc>().state.comments != null && context.bloc<PostBloc>().state.comments.isNotEmpty,
+                replacement: AutoSizeText(
+                  "Be the first to comment.",
+                  softWrap: true,
+                  style: Get.textTheme.bodyText2.copyWith(color: Colors.grey.shade600),
+                ),
+                child: Column(
+                  children: [
+                    if (context.bloc<PostBloc>().state.comments != null)
+                      for (Comment item in context.bloc<PostBloc>().state.comments)
+                        Column(
+                          children: [
+                            CommentBubble(comment: item),
+                            SizedBox(height: Get.height * 0.02),
+                          ],
+                        ),
+                  ],
+                ),
               );
             }),
+            SizedBox(height: Get.height * 0.02),
+            CommentBox(),
+            SizedBox(height: Get.height * 0.04),
+          ],
+        ),
       ),
     );
   }
