@@ -43,7 +43,5 @@ class _RootChildState extends State<RootChild> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return HomeScreen();
-  }
+  Widget build(BuildContext context) => HomeScreen();
 }

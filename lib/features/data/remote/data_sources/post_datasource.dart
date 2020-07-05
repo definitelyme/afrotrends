@@ -24,6 +24,7 @@ class PostDataSource {
             Duration(days: 7),
             maxStale: Duration(days: 10),
             forceRefresh: true,
+            subKey: "${query?.orderBy}-${query?.before}-${query?.after}",
           ));
 //      throw DioError(type: DioErrorType.CONNECT_TIMEOUT, request: response.request);
       return Posts.fromMap(formatListResponse(response.headers.map, response.data));

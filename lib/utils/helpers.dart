@@ -1,4 +1,6 @@
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
+import 'package:afrotrends/features/data/remote/models/taxonomy/exports_taxonomy.dart';
+import 'package:afrotrends/presentation/pages/detail/category_detail_screen.dart';
 import 'package:afrotrends/presentation/pages/detail/post_detail_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ final today = DateTime.now();
 const IMAGES_FOLDER = "assets/images";
 const DEV_IMAGES_FOLDER = "$IMAGES_FOLDER/dev";
 const PROD_IMAGES_FOLDER = "$IMAGES_FOLDER/prod";
+const DEFAULTS_IMAGES_FOLDER = "$PROD_IMAGES_FOLDER/defaults";
 const CATEGORIES_IMAGES_FOLDER = "$PROD_IMAGES_FOLDER/categories";
 
 EdgeInsetsGeometry defaultEdgeSpacing(BuildContext context, {double left, double top, double right, double bottom}) =>
@@ -17,6 +20,11 @@ void navigateToPostDetail(String heroTag, Post post) => navigator.push(MaterialP
     builder: (context) => PostDetailScreen(
           heroTag: heroTag,
           post: post,
+        )));
+
+void navigateToCategoryDetail(Taxonomy category) => navigator.push(MaterialPageRoute(
+    builder: (context) => CategoryDetailScreen(
+          category: category,
         )));
 
 double deviceMargin(BuildContext context) => Get.width * 0.04;

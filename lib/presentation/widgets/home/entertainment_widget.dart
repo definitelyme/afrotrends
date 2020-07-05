@@ -4,6 +4,7 @@ import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/widgets/shimmers/shimmer_right_content.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -127,47 +128,50 @@ class _EntertainmentWidgetState extends State<EntertainmentWidget> with Automati
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: post.customField.categories
-                              .take(2)
-                              .map<Widget>(
-                                (e) => Flexible(
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                                    child: Text(
-                                      e.name,
-                                      textScaleFactor: 0.8,
-                                      style: Get.textTheme.bodyText1.copyWith(color: AtColors.accentColor.shade300, fontSize: 13.0),
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: AtColors.accentColor.shade300.withAlpha(30),
-                                      borderRadius: BorderRadius.circular(defaultCardRadius()),
-                                    ),
-                                  ),
-                                ),
-                              )
-                              .toList(),
-                        ),
-                        Container(
-                          child: Text(
-                            postTitle,
-                            maxLines: 2,
-                            softWrap: true,
-                            overflow: TextOverflow.ellipsis,
-                            style: Get.textTheme.bodyText1.copyWith(fontSize: 16.0),
+                        Flexible(
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: post.customField.categories.take(2).length,
+                            itemBuilder: (_, index) => Container(
+                              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
+                              child: AutoSizeText(
+                                post.customField.categories.take(2).elementAt(index).name,
+                                maxLines: 1,
+                                style: Get.textTheme.bodyText1.copyWith(color: AtColors.accentColor.shade300),
+                              ),
+                              decoration: BoxDecoration(
+                                color: AtColors.accentColor.shade300.withAlpha(30),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            separatorBuilder: (_, index) => SizedBox(width: 8.0),
                           ),
                         ),
-                        Container(
-                          child: RichText(
-                            text: TextSpan(
-                              text: "By ${post.customField.user.displayName}",
-                              style: Get.textTheme.caption.copyWith(fontSize: 12.0),
-                              children: [
-                                TextSpan(text: " ∙ ", style: Get.textTheme.subtitle2.copyWith(fontWeight: FontWeight.bold)),
-                                TextSpan(text: "${timeago.format(DateTime.parse(post.createdAt))}"),
-                              ],
+                        Flexible(
+                          flex: 2,
+                          child: Container(
+                            child: Text(
+                              postTitle,
+                              maxLines: 2,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              style: Get.textTheme.bodyText1.copyWith(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: Container(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "By ${post.customField.user.displayName}",
+                                style: Get.textTheme.caption.copyWith(fontSize: 12.0),
+                                children: [
+                                  TextSpan(text: " ∙ ", style: Get.textTheme.subtitle2.copyWith(fontWeight: FontWeight.bold)),
+                                  TextSpan(text: "${timeago.format(DateTime.parse(post.createdAt))}"),
+                                ],
+                              ),
                             ),
                           ),
                         ),

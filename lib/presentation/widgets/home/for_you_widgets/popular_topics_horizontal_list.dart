@@ -6,7 +6,7 @@ class PopularTopicsHorizontalList extends StatefulWidget {
 }
 
 class _PopularTopicsHorizontalListState extends State<PopularTopicsHorizontalList> with AutomaticKeepAliveClientMixin {
-  static final List<String> _IMAGES = [
+  static const List<String> _IMAGES = [
     "beauty",
     "black_excellence",
     "celebrity",
@@ -14,6 +14,7 @@ class _PopularTopicsHorizontalListState extends State<PopularTopicsHorizontalLis
     "music",
     "news",
     "our_people",
+    "entertainment",
     "politics",
     "sports",
     "viral_trends",
@@ -143,8 +144,7 @@ class _PopularTopicsHorizontalListState extends State<PopularTopicsHorizontalLis
               type: MaterialType.transparency,
               color: Colors.transparent,
               child: InkWell(
-//                onTap: () => navigator.pushNamed(PostCategoryScreen.routeName, arguments: ModelRouteArg(model: topic)),
-                onTap: () {},
+                onTap: () => navigateToCategoryDetail(category),
                 child: Container(),
               ),
             ),

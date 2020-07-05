@@ -103,6 +103,7 @@ flutter:
     - assets/images/dev/
     - assets/images/prod/
     - assets/images/prod/categories/
+    - assets/images/prod/defaults/
     #   - images/a_dot_ham.jpeg
 
   fonts:

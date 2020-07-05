@@ -1,6 +1,7 @@
 library serializer;
 
 import 'package:afrotrends/features/data/remote/models/author/exports.dart';
+import 'package:afrotrends/features/data/remote/models/comment/exports_comment.dart';
 import 'package:afrotrends/features/data/remote/models/content/content.dart';
 import 'package:afrotrends/features/data/remote/models/extras/exports_extra.dart';
 import 'package:afrotrends/features/data/remote/models/media/featured_image.dart';
@@ -18,6 +19,8 @@ part 'serializer.g.dart';
   Posts,
   Author,
   Content,
+  Comment,
+  Comments,
   PageInfo,
   Taxonomy,
   Taxonomies,

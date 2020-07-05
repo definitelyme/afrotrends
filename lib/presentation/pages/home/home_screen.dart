@@ -1,5 +1,4 @@
 import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
-import 'package:afrotrends/presentation/widgets/home/beauty_widget.dart';
 import 'package:afrotrends/presentation/widgets/home/black-ex_widget.dart';
 import 'package:afrotrends/presentation/widgets/home/entertainment_widget.dart';
 import 'package:afrotrends/presentation/widgets/home/for_you_widget.dart';
@@ -55,12 +54,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               snackPosition: SnackPosition.TOP,
               forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
               shouldIconPulse: true,
-              duration: const Duration(seconds: 20),
+              duration: const Duration(seconds: 10),
               isDismissible: false,
               snackStyle: SnackStyle.FLOATING,
               mainButton: FlatButton(
                 onPressed: () => _homeBloc.add(_homeBloc.state.lastSink),
-                child: Text("Try again"),
+                child: Text("Try again", style: TextStyle(color: Colors.white)),
               ),
               margin: EdgeInsets.all(Get.height * 0.01));
       },
