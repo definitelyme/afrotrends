@@ -5,6 +5,7 @@ import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/widgets/exports_widget.dart';
+import 'package:afrotrends/widgets/horizontal_list.dart';
 import 'package:afrotrends/widgets/shimmers/rectangle_shimmer.dart';
 import 'package:afrotrends/widgets/shimmers/shimmer_bottom_content.dart';
 import 'package:afrotrends/widgets/shimmers/shimmer_right_content.dart';
@@ -17,7 +18,6 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:slugify/slugify.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 part './for_you_widgets/latest_news_horizontal_list.dart';
 part './for_you_widgets/older_posts_vertical_list.dart';
