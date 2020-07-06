@@ -32,7 +32,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   }
 
   Stream<CategoryState> mapRelatedPostsEvent(_FetchRelatedPosts e) async* {
-    final query = QueryBuilder(taxonomy: TCategory(e.category.id));
+    final query = QueryBuilder(taxonomy: TCategory(e.category.id), perPage: 7);
     final categoryPosts = await _postRepository.fetchRelatedPosts(query);
     yield state.copyWith(
         posts: ((state.posts != null) && state.posts.last != categoryPosts?.items?.last)
