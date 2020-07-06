@@ -61,7 +61,7 @@ class _OlderPostsVerticalListState extends State<OlderPostsVerticalList> with Au
           itemCount: _calculateListItemCount() + 1,
           itemBuilder: (_, index) {
             if (index == _calculateListItemCount()) return _loadMoreButton(_bloc?.state?.endOfLastMonthPosts ?? false);
-            return AtHorizontalList(post: _bloc.state.lastMonthPosts.elementAt(index), tagPrefix: "older-posts");
+            return AtHorizontalCard(post: _bloc.state.lastMonthPosts.elementAt(index), tagPrefix: "older-posts");
           },
         );
       }),

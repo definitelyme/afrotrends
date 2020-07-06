@@ -1,7 +1,9 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
 import 'package:afrotrends/features/data/remote/models/taxonomy/exports_taxonomy.dart';
 import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
+import 'package:afrotrends/utils/ads.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/widgets/exports_widget.dart';
@@ -47,6 +49,13 @@ class ForYouWidget extends StatelessWidget {
         ),
         SizedBox(height: Get.height * 0.02),
         LatestNewsHorizontalList(),
+        Padding(
+          padding: EdgeInsets.only(top: deviceMargin(context), right: deviceMargin(context)),
+          child: AdmobBanner(
+            adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+            adSize: AdmobBannerSize.BANNER,
+          ),
+        ),
         SizedBox(height: Get.height * 0.04),
         Container(
           padding: EdgeInsets.only(right: deviceMargin(context)),
@@ -73,6 +82,13 @@ class ForYouWidget extends StatelessWidget {
         SizedBox(height: Get.height * 0.01),
         OlderPostsVerticalList(),
         SizedBox(height: Get.height * 0.02),
+        Padding(
+          padding: EdgeInsets.only(right: deviceMargin(context)),
+          child: AdmobBanner(
+            adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+            adSize: AdmobBannerSize.FULL_BANNER,
+          ),
+        ),
       ],
     );
   }
