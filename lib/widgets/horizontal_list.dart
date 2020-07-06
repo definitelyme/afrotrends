@@ -9,11 +9,11 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class AtHorizontalList extends StatelessWidget {
+class AtHorizontalCard extends StatelessWidget {
   final String tagPrefix;
   final Post post;
 
-  const AtHorizontalList({Key key, @required this.tagPrefix, @required this.post})
+  const AtHorizontalCard({Key key, @required this.tagPrefix, @required this.post})
       : assert(tagPrefix != null),
         assert(post != null),
         super(key: key);

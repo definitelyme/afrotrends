@@ -1,8 +1,10 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:afrotrends/features/data/remote/models/comment/exports_comment.dart';
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
 import 'package:afrotrends/manager/service_provider/provider.dart';
 import 'package:afrotrends/presentation/manager/detail_bloc/post/post_bloc.dart';
 import 'package:afrotrends/presentation/pages/detail/components/comment_box.dart';
+import 'package:afrotrends/utils/ads.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/utils/navigator.dart';
@@ -114,6 +116,13 @@ class PostDetailScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: Get.height * 0.03),
+            SizedBox(
+              height: Get.height * 0.1,
+              child: AdmobBanner(
+                adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+                adSize: AdmobBannerSize.SMART_BANNER,
+              ),
+            ),
             HtmlView(
               data: post.content.rendered,
               onLaunchFail: (url) {
@@ -160,7 +169,11 @@ class PostDetailScreen extends StatelessWidget {
                 ),
               );
             }),
-            SizedBox(height: Get.height * 0.02),
+            SizedBox(height: Get.height * 0.03),
+            AdmobBanner(
+              adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+              adSize: AdmobBannerSize.FULL_BANNER,
+            ),
             CommentBox(),
             SizedBox(height: Get.height * 0.04),
           ],

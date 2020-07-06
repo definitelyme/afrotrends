@@ -1,6 +1,8 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:afrotrends/features/data/remote/models/post/exports.dart';
 import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
+import 'package:afrotrends/utils/ads.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/widgets/horizontal_list.dart';
@@ -78,6 +80,13 @@ class _BlackExcellenceWidgetState extends State<BlackExcellenceWidget> with Auto
             itemBuilder: (_, index) => _buildCarouselPosts(topPosts.elementAt(index)),
           );
         }),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: deviceMargin(context)),
+          child: AdmobBanner(
+            adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+            adSize: AdmobBannerSize.BANNER,
+          ),
+        ),
         SizedBox(height: Get.height * 0.02),
         Container(
           padding: EdgeInsets.symmetric(horizontal: deviceMargin(context)),
@@ -123,10 +132,17 @@ class _BlackExcellenceWidgetState extends State<BlackExcellenceWidget> with Auto
             itemCount: _calculateListItemCount() + 1,
             itemBuilder: (_, index) {
               if (index == _calculateListItemCount()) return _loadMoreButton(_bloc?.state?.endOfBlackExPosts ?? false);
-              return AtHorizontalList(post: olderPosts.elementAt(index), tagPrefix: "black-ex");
+              return AtHorizontalCard(post: olderPosts.elementAt(index), tagPrefix: "black-ex");
             },
           );
         }),
+        Padding(
+          padding: EdgeInsets.all(deviceMargin(context)),
+          child: AdmobBanner(
+            adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+            adSize: AdmobBannerSize.FULL_BANNER,
+          ),
+        ),
       ],
     );
   }

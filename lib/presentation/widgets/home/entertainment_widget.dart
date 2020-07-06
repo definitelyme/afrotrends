@@ -1,5 +1,7 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:afrotrends/features/domain/api_client/exports.dart';
 import 'package:afrotrends/presentation/manager/home_bloc/home_bloc.dart';
+import 'package:afrotrends/utils/ads.dart';
 import 'package:afrotrends/utils/colors.dart';
 import 'package:afrotrends/utils/helpers.dart';
 import 'package:afrotrends/widgets/horizontal_list.dart';
@@ -75,7 +77,7 @@ class _EntertainmentWidgetState extends State<EntertainmentWidget> with Automati
         itemCount: _calculateListItemCount() + 1,
         itemBuilder: (_, index) {
           if (index == _calculateListItemCount()) return _loadMoreButton(_bloc?.state?.endOfEntertainmentPosts ?? false);
-          return AtHorizontalList(post: state.entertainmentPosts.elementAt(index), tagPrefix: "entertainment");
+          return AtHorizontalCard(post: state.entertainmentPosts.elementAt(index), tagPrefix: "entertainment");
         },
       );
     });
@@ -87,6 +89,13 @@ class _EntertainmentWidgetState extends State<EntertainmentWidget> with Automati
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(width: Get.width * 0.08),
+        Padding(
+          padding: EdgeInsets.only(right: deviceMargin(context)),
+          child: AdmobBanner(
+            adUnitId: AfrotrendsAds.getBannerAdUnitId(),
+            adSize: AdmobBannerSize.FULL_BANNER,
+          ),
+        ),
         Visibility(
           visible: _bloc.state.isFetchingMore,
           child: CupertinoActivityIndicator(),
