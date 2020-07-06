@@ -8,15 +8,16 @@ import 'package:afrotrends/utils/navigator.dart';
 import 'package:afrotrends/widgets/shimmers/shimmer_bottom_content.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
+import 'package:intl/intl.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   final Taxonomy category;
+  final double _radius = 8.0;
 
   const CategoryDetailScreen({Key key, this.category}) : super(key: key);
 
@@ -61,20 +62,22 @@ class CategoryDetailScreen extends StatelessWidget {
                     );
                   });
 
-            return Container(
-              margin: defaultEdgeSpacing(context, top: Get.height * 0.03),
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  aspectRatio: 0.5,
-                  height: Get.height,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.vertical,
-                  enableInfiniteScroll: false,
-                  pageViewKey: PageStorageKey(ValueKey(category.name)),
-                  scrollPhysics: defaultScrollPhysics(),
-                ),
-                items: _bloc.state.posts.map<Widget>((post) => _relatedPostsBuilder(post)).toList(),
-              ),
+            return ListView.separated(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              controller: ScrollController(),
+              physics: BouncingScrollPhysics(),
+              padding: defaultEdgeSpacing(context),
+              itemCount: _bloc.state.posts.length,
+              itemBuilder: (_, i) => _relatedPostsBuilder(_bloc.state.posts.elementAt(i)),
+              separatorBuilder: (_, i) {
+                if (i != 0 && i % 3 == 0) {
+                  // Place your ads here
+                  return SizedBox.shrink();
+                }
+                return SizedBox(height: Get.height * 0.02);
+              },
+//              children: _bloc.state.posts.map((post) => _relatedPostsBuilder(post)).toList(),
             );
           },
         ),
@@ -84,56 +87,91 @@ class CategoryDetailScreen extends StatelessWidget {
 
   Widget _relatedPostsBuilder(Post post) {
     String postTitle = parse(parse(post?.title?.rendered).body.text).documentElement.text;
+    String postBody = parse(parse(post?.content?.rendered).body.text).documentElement.text;
+//    onTap: () => navigateToPostDetail("${category.name}-detail-${post.id}", post),
 
     return Container(
-      margin: EdgeInsets.all(5.0),
-      child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-          child: Stack(
-            children: <Widget>[
-              CachedNetworkImage(
-                imageUrl: post?.customField?.featuredImage?.first?.sourceUrl,
-                imageBuilder: (context, imageProvider) => Material(
-                  child: InkWell(
-                    onTap: () => navigateToPostDetail("${category.name}-detail-${post.id}", post),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(defaultCardRadius()),
-                        image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
-                      ),
-                    ),
-                  ),
-                ),
-                placeholder: (context, url) => Center(
-                  child: CupertinoActivityIndicator(),
-                ),
-                errorWidget: (context, url, error) => Icon(Icons.error, color: AtColors.accentColor),
-              ),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color.fromARGB(200, 0, 0, 0), Color.fromARGB(0, 0, 0, 0)],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-                  child: AutoSizeText(
-                    postTitle,
-                    minFontSize: 17.0,
-                    softWrap: true,
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
+      height: Get.height * 0.43,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(_radius), color: Colors.white, boxShadow: [
+        BoxShadow(color: Colors.grey[300], offset: Offset(3, 3), blurRadius: 2.0),
+      ]),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 8,
+            child: CachedNetworkImage(
+              imageUrl: post?.customField?.featuredImage?.first?.sourceUrl,
+              color: Colors.grey,
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(_radius), topRight: Radius.circular(_radius)),
+                  image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
                 ),
               ),
-            ],
-          )),
+              placeholder: (context, url) => Center(
+                child: CupertinoActivityIndicator(),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error, color: AtColors.accentColor),
+            ),
+          ),
+          Expanded(
+            flex: 7,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+              child: Column(
+                children: [
+                  Flexible(
+                    flex: 6,
+                    child: AutoSizeText(
+                      postTitle,
+                      softWrap: true,
+                      maxLines: 2,
+                      minFontSize: 14.0,
+                      maxFontSize: 16.0,
+                      textAlign: TextAlign.left,
+                      overflow: TextOverflow.ellipsis,
+                      style: Get.textTheme.headline5.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  SizedBox(height: Get.height * 0.01),
+                  Flexible(
+                    flex: 8,
+                    child: AutoSizeText(
+                      postBody,
+                      softWrap: true,
+                      maxLines: 3,
+                      minFontSize: 13.0,
+                      textAlign: TextAlign.justify,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  SizedBox(height: Get.height * 0.01),
+                  Flexible(
+                    flex: 3,
+                    child: Row(
+                      children: [
+                        AutoSizeText(
+                          "${DateFormat.yMMMd().format(DateTime.parse(post.createdAt))}",
+                          maxFontSize: 13.0,
+                        ),
+                        Spacer(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text("4"),
+                            Icon(Icons.mode_comment, color: Colors.grey[500]),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
