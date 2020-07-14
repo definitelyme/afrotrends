@@ -44,8 +44,5 @@ app.*.map.json
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# Firebase related
-google-services.json
-
 # CI related
 key.jks

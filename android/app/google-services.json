@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1061311014542",
+    "firebase_url": "https://willingie.firebaseio.com",
+    "project_id": "willingie",
+    "storage_bucket": "willingie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061311014542:android:322250f77d839967da4bdf",
+        "android_client_info": {
+          "package_name": "com.afrotrends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061311014542-s2k5qi00vhe72518chdgdfuv88tqnmae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afrotrends",
+            "certificate_hash": "d8b8711ca453ea7c9abcf6cd0a617b6f0dbbfec3"
+          }
+        },
+        {
+          "client_id": "1061311014542-viccm16dcuhl9shldjt1mdmn8rd9jfv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS2uG9hV0yrdVQcogA6PlNk5_i7aKTBWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061311014542-viccm16dcuhl9shldjt1mdmn8rd9jfv8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1061311014542-041uq94j6235qoae4c7n13gheiu370gf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.afrotrends"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
